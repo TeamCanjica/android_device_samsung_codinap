@@ -56,9 +56,9 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/NFC/nfcee_access.xml:system/etc/nfcee_access.xml
+    $(LOCAL_PATH)/NFC/nfcee_access.xml:system/etc/nfcee_access.xml \
     packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
-    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
