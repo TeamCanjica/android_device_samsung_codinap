@@ -6,10 +6,10 @@ $(call inherit-product, vendor/samsung/u8500-common/codina/codina-vendor-blobs.m
 
 ifneq ($(TARGET_SCREEN_HEIGHT),800)
 # Call cm.mk because somehow it's not being called!
-$(call inherit-product, device/samsung/codina/cm.mk)
+$(call inherit-product, device/samsung/codinap/cm.mk)
 endif
 
-LOCAL_PATH := device/samsung/codina
+LOCAL_PATH := device/samsung/codinap
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -24,11 +24,11 @@ PRODUCT_PACKAGES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina \
-    $(LOCAL_PATH)/rootdir/init.recovery.samsungcodina.rc:root/init.recovery.samsungcodina.rc \
-    $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
-    $(LOCAL_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc
+    $(LOCAL_PATH)/rootdir/fstab.samsungcodinap:root/fstab.samsungcodina \
+    $(LOCAL_PATH)/rootdir/init.recovery.samsungcodinap.rc:root/init.recovery.samsungcodina.rc \
+    $(LOCAL_PATH)/rootdir/init.samsungcodinap.rc:root/init.samsungcodina.rc \
+    $(LOCAL_PATH)/rootdir/init.samsungcodinap.usb.rc:root/init.samsungcodina.usb.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.samsungcodinap.rc:root/ueventd.samsungcodina.rc
     
 # STE
 PRODUCT_COPY_FILES += \

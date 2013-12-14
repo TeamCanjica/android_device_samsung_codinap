@@ -1,5 +1,5 @@
 #
-# system.prop for GT-I8160
+# system.prop for GT-I8160P
 #
 debug.hwui.render_dirty_regions=false
 persist.service.adb.enable=1

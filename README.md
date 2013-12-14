@@ -1,6 +1,6 @@
 CyanogenMod 10.2
 =============================
-Device Tree for Samsung Galaxy Ace 2 P
+Device Tree for Samsung Galaxy Ace 2 NFC Variant
 (GT-I8160P)
 
 How to build:
