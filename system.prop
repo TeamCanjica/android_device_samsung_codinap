@@ -1,0 +1,31 @@
+#
+# system.prop for GT-I8160
+#
+debug.hwui.render_dirty_regions=false
+persist.service.adb.enable=1
+persist.sys.usb.config=mtp,adb
+rild.libargs=-d /dev/ttyS0
+rild.libpath=/system/lib/libsec-ril.so
+ro.telephony.call_ring.multiple=false
+ro.telephony.ril_class=SamsungU8500RIL
+ro.telephony.sends_barcount=1
+ro.sf.lcd_density=240
+ste.cam.back.orientation=90
+ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v113.dat
+ste.cam.front.orientation=270
+ste.dbus.bus.address=unix:path=/dev/socket/dbus_ste
+ste.nmf.autoidle=1
+ste.omx.ctx=0
+ste.special_fast_dormancy=false
+ste.video.dec.mpeg4.in.size=8192
+ste.video.dec.recycle.delay=1
+ste.video.enc.out.buffercnt=5
+dalvik.vm.dexopt-data-only=1
+
+# Hardware info
+ro.device.chipset=ST-Ericsson NovaThor U8500 (45nm)
+ro.device.cpu=ARMv7 800MHz Dual-core ARM Cortex-A9
+ro.device.gpu=Mali-400MP Single Core
+ro.device.rear_cam=5 Mpix (2592x1944)
+ro.device.front_cam=VGA (640x480)
+ro.device.screen_res=3,8' 800x480 pixels ( ~246 ppi)
