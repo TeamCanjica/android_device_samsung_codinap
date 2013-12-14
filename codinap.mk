@@ -24,11 +24,11 @@ PRODUCT_PACKAGES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.samsungcodinap:root/fstab.samsungcodina \
-    $(LOCAL_PATH)/rootdir/init.recovery.samsungcodinap.rc:root/init.recovery.samsungcodina.rc \
-    $(LOCAL_PATH)/rootdir/init.samsungcodinap.rc:root/init.samsungcodina.rc \
-    $(LOCAL_PATH)/rootdir/init.samsungcodinap.usb.rc:root/init.samsungcodina.usb.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.samsungcodinap.rc:root/ueventd.samsungcodina.rc
+    $(LOCAL_PATH)/rootdir/fstab.samsungcodinap:root/fstab.samsungcodinap \
+    $(LOCAL_PATH)/rootdir/init.recovery.samsungcodinap.rc:root/init.recovery.samsungcodinap.rc \
+    $(LOCAL_PATH)/rootdir/init.samsungcodinap.rc:root/init.samsungcodinap.rc \
+    $(LOCAL_PATH)/rootdir/init.samsungcodinap.usb.rc:root/init.samsungcodinap.usb.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.samsungcodinap.rc:root/ueventd.samsungcodinap.rc
     
 # STE
 PRODUCT_COPY_FILES += \
@@ -47,5 +47,18 @@ PRODUCT_COPY_FILES += \
 # Gps
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+	
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras
+    libnfc \
+    libnfc_jni \
+    Nfc \
+    Tag
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/NFC/nfcee_access.xml:system/etc/nfcee_access.xml
+    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
