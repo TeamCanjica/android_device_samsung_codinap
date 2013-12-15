@@ -10,7 +10,7 @@ TARGET_KERNEL_CONFIG := cyanogenmod_i8160P_defconfig
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/codinap/bluetooth
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/codinap/rootdir/fstab.samsungcodinap
+TARGET_RECOVERY_FSTAB := device/samsung/codinap/rootdir/fstab.samsungcodina
 
 # Boot Animation
 TARGET_BOOTANIMATION_PRELOAD := true

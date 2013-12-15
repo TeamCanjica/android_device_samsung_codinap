@@ -1,4 +1,4 @@
-import init.samsungcodinap.usb.rc
+import init.samsungcodina.usb.rc
 
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
@@ -57,7 +57,7 @@ on init
 
 on fs
 
-    mount_all /fstab.samsungcodinap
+    mount_all /fstab.samsungcodina
     setprop ro.crypto.fuse_sdcard false
 
     start cspsa
@@ -223,7 +223,7 @@ on post-fs-data
     chmod 0775 /data/log
     chmod 0775 /data/anr
 
-	# Permissions for NFC
+    # Permissions for NFC
     setprop ro.nfc.port "I2C"
     chmod 0600 /dev/pn544
     chown nfc nfc /dev/pn544
