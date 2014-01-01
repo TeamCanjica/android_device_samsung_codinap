@@ -40,7 +40,7 @@
     <string name="deepsleep_subcat_title">Deep Sleep</string>
     <string name="deepest_sleep_title_head">Deepest sleep state</string>
     <string name="deepest_sleep_summary_head">Specify the highest deep sleep level</string>
-    
+
     <!-- TAB: ADVANCED -->
     <string name="category_advanced_title">Advanced</string>
 
@@ -55,10 +55,15 @@
     <string name="mali_l2_mr_summary_head">Increasing it may improve graphics performance.</string>
     <string name="mali_pam_title_head">Mali Pre-allocated memory size</string>
     <string name="mali_pam_summary_head">Increasing it may improve graphics performance.</string>
-    
+
     <!-- CATEGORY: MMC -->
     <string name="mmc_subcat_title">MMC</string>
     <string name="use_spi_crc_title_head">Disable SPI CRC</string>
     <string name="use_spi_crc_summary_head">Disabling SPI CRC can improve mmc performance (10% - 30%) but phone may freeze randomly</string>
+
+    <!-- CATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Storage</string>
+    <string name="switch_storage_title_head">Swap Storages</string>
+    <string name="switch_storage_summary_head">Switches internal storage partition with external sd-card</string>
     
 </resources>

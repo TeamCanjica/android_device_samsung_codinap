@@ -42,5 +42,11 @@
             android:summary="@string/use_spi_crc_summary_head"
             android:title="@string/use_spi_crc_title_head" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/storage_subcat_title" >
+        <CheckBoxPreference
+            android:key="switch_storage"
+            android:summary="@string/switch_storage_summary_head"
+            android:title="@string/switch_storage_title_head" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
