@@ -20,6 +20,7 @@ ste.special_fast_dormancy=false
 ste.video.dec.mpeg4.in.size=8192
 ste.video.dec.recycle.delay=1
 ste.video.enc.out.buffercnt=5
+dalvik.vm.dexopt-data-only=1
 
 # Hardware info
 ro.device.chipset=ST-Ericsson NovaThor U8500 (45nm)
