@@ -10,13 +10,12 @@ $(call inherit-product, device/samsung/codinap/cm.mk)
 endif
 
 LOCAL_PATH := device/samsung/codinap
+CODINA_PATH := device/samsung/codina
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(CODINA_PATH)/overlay
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PACKAGES += \
     GalaxyAce2Settings \
@@ -24,29 +23,29 @@ PRODUCT_PACKAGES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina \
-    $(LOCAL_PATH)/rootdir/init.recovery.samsungcodina.rc:root/init.recovery.samsungcodina.rc \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
-    $(LOCAL_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc
+    $(CODINA_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina \
+    $(CODINA_PATH)/rootdir/init.recovery.samsungcodina.rc:root/init.recovery.samsungcodina.rc \
+    $(CODINA_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
+    $(CODINA_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc
     
 # STE
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ste_modem.sh:system/etc/ste_modem.sh
+    $(CODINA_PATH)/configs/ste_modem.sh:system/etc/ste_modem.sh
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/asound.conf:system/etc/asound.conf \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/adm.sqlite-u8500:system/etc/adm.sqlite-u8500
+    $(CODINA_PATH)/configs/asound.conf:system/etc/asound.conf \
+    $(CODINA_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    $(CODINA_PATH)/configs/adm.sqlite-u8500:system/etc/adm.sqlite-u8500
     
 # Dbus
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/dbus.conf:system/etc/dbus.conf
+    $(CODINA_PATH)/configs/dbus.conf:system/etc/dbus.conf
 
 # Gps
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+    $(CODINA_PATH)/configs/gps.conf:system/etc/gps.conf
 	
 # NFC
 PRODUCT_PACKAGES += \
@@ -62,4 +61,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+# Storage switch script
+PRODUCT_COPY_FILES += \
+    $(CODINA_PATH)/configs/SwapStorages.sh:system/xbin/SwapStorages.sh
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
+    persist.sys.vold.switchexternal=0
