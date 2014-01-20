@@ -1,0 +1,39 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="mali_l2_mr_entries">
+        <item>28kb (Početno)</item>
+        <item>48kb (Zadano)</item>
+    </string-array>
+	<string-array name="mali_pam_entries">
+        <item>16MB</item>
+        <item>24MB</item>
+        <item>32MB</item>
+        <item>48MB</item>
+    </string-array>
+    <string-array name="fsync_mode_entries">
+        <item>Uključeno (Zadano)</item>
+        <item>Isključeno</item>
+        <item>Dinamični Fsync</item>
+    </string-array>
+    <string-array name="cc_currency_usb_entries">
+        <item>800 mA *WARNING*</item>
+        <item>600 mA (Brzo punjenje)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="deepest_sleep_states_entries">
+        <item>Stanje 5</item>
+        <item>Stanje 4</item>
+        <item>Stanje 3 (Zadano)</item>
+    </string-array>
+    <string-array name="cc_currency_charger_entries">
+        <item>800 mA   *UPOZORENJE*</item>
+        <item>600 mA (Zadano)</item>
+        <item>400 mA</item>
+    </string-array>
+    <string-array name="hspa_entries">
+        <item>Samo UMTS</item>
+        <item>Samo HSDPA</item>
+        <item>HSDPA + HSUPA</item>
+    </string-array>
+
+</resources>

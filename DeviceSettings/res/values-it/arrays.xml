@@ -1,9 +1,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string-array name="cc_currency_usb_entries">
-        <item>800 mAh *ATTENZIONE*</item>
-        <item>600 mAh (Ricarica Veloce)</item>
-        <item>400 mAh</item>
+        <item>800 mA *ATTENZIONE*</item>
+        <item>600 mA (Ricarica Veloce)</item>
+        <item>400 mA</item>
     </string-array>
     <string-array name="deepest_sleep_states_entries">
         <item>Stato 5</item>
@@ -11,9 +11,9 @@
         <item>Stato 3 (Predefinito)</item>
     </string-array>
     <string-array name="cc_currency_charger_entries">
-        <item>800 mAh   *ATTENZIONE*</item>
-        <item>600 mAh (Predefinito)</item>
-        <item>400 mAh</item>
+        <item>800 mA   *ATTENZIONE*</item>
+        <item>600 mA (Predefinito)</item>
+        <item>400 mA</item>
     </string-array>
     <string-array name="hspa_entries">
         <item>Solo UMTS</item>

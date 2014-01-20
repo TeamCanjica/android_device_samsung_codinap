@@ -22,7 +22,7 @@
     <string name="accelerometer_dialog_message">The sensor has been successfully calibrated.</string>
 
     <!-- TAB: USB -->
-    <string name="category_usb_title">Usb</string>
+    <string name="category_usb_title">USB</string>
 
     <!-- CATEGORY: USB OTG Settings -->
     <string name="otg_subcat_title">USB OTG Settings</string>
@@ -64,6 +64,6 @@
     <!-- CATEGORY: STORAGE -->
     <string name="storage_subcat_title">Storage</string>
     <string name="switch_storage_title_head">Swap Storages</string>
-    <string name="switch_storage_summary_head">Switches internal storage partition with external sd-card</string>
+    <string name="switch_storage_summary_head">Switches internal storage partition with external sd-card. Reboot required.</string>
     
 </resources>

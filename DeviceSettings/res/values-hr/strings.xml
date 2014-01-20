@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App name -->
+    <string name="app_name">Galaxy Ace 2 Postavke</string>
+
+    <!-- TAB: General -->
+    <string name="category_general_title">Osnovno</string>
+
+    <!-- CATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Radio status</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Uključivanje HSDPA/HSUPA</string>
+
+    <!-- CATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Akcelerometar</string>
+    <string name="use_accelerometer_calibration_title_head">Koristi podatke kalibriranja</string>
+    <string name="use_accelerometer_calibration_summary_head">Koristi iznose kalibriranja. Kalibriraj nakon ovog odabira!</string>
+    <string name="calibrate_accelerometer_title_head">Kalibriraj</string>
+    <string name="calibrate_accelerometer_summary_head">Pritisni nakon postavljanja mobitela na ravnu površinu</string>
+    <string name="accelerometer_dialog_head">Kalibriranje završeno</string>
+    <string name="accelerometer_dialog_message">Senzor je uspješno kalibriran</string>
+
+    <!-- TAB: USB -->
+    <string name="category_usb_title">USB</string>
+
+    <!-- CATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">USB OTG Postavke</string>
+    <string name="otg_power_title_head">USB-VBUS Power</string>
+    <string name="otg_power_summary_head">Uključije izlazni napon na USB priključak</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Kontroliranje punjenja</string>
+    <string name="ac_cc_title_head">Jakost zidnog punjača</string>
+    <string name="ac_cc_summary_head">Smanjivanjem se štiti baterija ali punjenje traje duže, povećavanjem se može smanjiti vijek baterije</string>
+    <string name="usb_cc_title_head">Jakost USB punjenja</string>
+    <string name="usb_cc_summary_head">Korisno je odabrati Brzo Punjenje. Smanjivanjem se štiti baterija ali punjenje traje duže, povećavanjem se može smanjiti vijek baterije</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="deepsleep_subcat_title">Duboki san</string>
+    <string name="deepest_sleep_title_head">Stanje dubokog sna</string>
+    <string name="deepest_sleep_summary_head">Odredi najdublje stanje sna</string>
+
+    <!-- TAB: ADVANCED -->
+    <string name="category_advanced_title">Napredno</string>
+
+    <!-- CATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">FSync mode</string>
+    <string name="fsync_summary_head">Isključivanjem fsync-a mogu se unaprijediti IO performase, ali može izazvati oštenćenje podataka. Dinamični fsync će sinkronizirati sve "buffere" kada se zaslon ugasi.</string>
+
+    <!-- CATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Povećavanjem se mogu unaprijediti grafičke performanse</string>
+    <string name="mali_pam_title_head">Mali Pre-allocated memory size</string>
+    <string name="mali_pam_summary_head">Povećavanjem se mogu unaprijediti grafičke performanse</string>
+
+    <!-- CATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Isključi SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Isklučivanjem SPI CRC se mogu unaprijediti mmc performanse (10% - 30%) ali mobitel se može iznenada zalediti</string>
+
+    <!-- CATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Pohranjivanje</string>
+    <string name="switch_storage_title_head">Zamjeni memoriju</string>
+    <string name="switch_storage_summary_head">Zamjenjuje unutarnju sa vanjskom memorijom. Potrebno resetirati!</string>
+    
+</resources>

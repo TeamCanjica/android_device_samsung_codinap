@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <PreferenceCategory android:title="@string/storage_subcat_title" >
+        <CheckBoxPreference
+            android:key="switch_storage"
+            android:summary="@string/switch_storage_summary_head"
+            android:title="@string/switch_storage_title_head" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/deepsleep_subcat_title" >
         <com.cyanogenmod.settings.device.DeepestSleepState
             android:defaultValue="3"
@@ -41,12 +47,6 @@
             android:key="use_spi_crc"
             android:summary="@string/use_spi_crc_summary_head"
             android:title="@string/use_spi_crc_title_head" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/storage_subcat_title" >
-        <CheckBoxPreference
-            android:key="switch_storage"
-            android:summary="@string/switch_storage_summary_head"
-            android:title="@string/switch_storage_title_head" />
     </PreferenceCategory>
 
 </PreferenceScreen>
