@@ -65,5 +65,10 @@
     <string name="storage_subcat_title">Pohranjivanje</string>
     <string name="switch_storage_title_head">Zamjeni memoriju</string>
     <string name="switch_storage_summary_head">Zamjenjuje unutarnju sa vanjskom memorijom. Potrebno resetirati!</string>
+	
+    <!-- CATEGORY: TouchScreen -->
+    <string name="touchscreen_subcat_title">Touchscreen</string>
+    <string name="use_sweep2wake_title_head">Sweep2Wake</string>
+    <string name="use_sweep2wake_summary_head">Otključaj uređaj kretnjom preko ekrana</string>
     
 </resources>

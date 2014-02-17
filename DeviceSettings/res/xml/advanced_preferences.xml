@@ -7,6 +7,12 @@
             android:summary="@string/switch_storage_summary_head"
             android:title="@string/switch_storage_title_head" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/touchscreen_subcat_title" >
+        <CheckBoxPreference
+            android:key="use_sweep2wake"
+            android:summary="@string/use_sweep2wake_summary_head"
+            android:title="@string/use_sweep2wake_title_head" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/deepsleep_subcat_title" >
         <com.cyanogenmod.settings.device.DeepestSleepState
             android:defaultValue="3"

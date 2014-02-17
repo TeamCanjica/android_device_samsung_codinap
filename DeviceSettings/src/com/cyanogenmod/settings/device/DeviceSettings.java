@@ -36,11 +36,9 @@ public class DeviceSettings extends FragmentActivity {
 
 	public static final String SHARED_PREFERENCES_BASENAME = "com.cyanogenmod.settings.device";
 	public static final String ACTION_UPDATE_PREFERENCES = "com.cyanogenmod.settings.device.UPDATE";
-	public static final String KEY_PANEL_GAMMA = "panel_gamma";
 	public static final String KEY_HSPA = "hspa";
 	public static final String KEY_USE_ACCELEROMETER_CALIBRATION = "use_accelerometer_calibration";
 	public static final String KEY_CALIBRATE_ACCELEROMETER = "calibrate_accelerometer";
-	public static final String KEY_USE_DOCK_AUDIO = "dock_audio";
 	public static final String KEY_USB_OTG_POWER = "usb_otg_power";
 	public static final String KEY_DEEPEST_SLEEP_STATE = "deepest_sleep_state";
 	public static final String KEY_AC_CURRENCY = "ac_currency";
@@ -48,6 +46,7 @@ public class DeviceSettings extends FragmentActivity {
 	public static final String KEY_FSYNC_MODE = "fsync_mode";
 	public static final String KEY_MALI_L2MR = "mali_l2_mr";
 	public static final String KEY_MALI_PAM = "mali_pam";
+	public static final String KEY_USE_SWEEP2WAKE = "use_sweep2wake";
 	public static final String KEY_USE_SPI_CRC = "use_spi_crc";
 	public static final String KEY_SWITCH_STORAGE = "switch_storage";
 
