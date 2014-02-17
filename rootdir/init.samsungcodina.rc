@@ -361,34 +361,29 @@ on boot
 
 # Peremissions for bluetooth
     # UART device
-    chown bluetooth bluetooth /dev/ttyAMA0
+    chown bluetooth net_bt_stack /dev/ttyAMA0
     chmod 0660 /dev/ttyAMA0
 
 # for bluetooth. change access rights as btld runs as bluetooth user
-    chown root bluetooth /sys/class/rfkill/rfkill0
-    chown root bluetooth /sys/class/rfkill/rfkill0/state
-    chown root bluetooth /sys/class/rfkill/rfkill0/claim	
-    chown root bluetooth /sys/class/rfkill/rfkill0/soft
-    chown root bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/claim	
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/soft
     chmod 0664 /sys/class/rfkill/rfkill0/state
     chmod 0664 /sys/class/rfkill/rfkill0/claim
     chmod 0664 /sys/class/rfkill/rfkill0/soft
-    chmod 0664 /sys/class/rfkill/rfkill0/type
     setprop service.brcm.bt.pbap_mode btld
 
 # power up/down interface
+    chmod 0660 /sys/class/rfkill/rfkill0/type
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /sts/class/rfkill/rfkill0/type
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
 
 # bluetooth MAC address programming
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
     chown bluetooth bluetooth ro.bt.bdaddr_path
     chown bluetooth bluetooth /system/etc/bt_addr
     chmod 0644 /efs/bluetooth/addr.txt
-
-    chown bluetooth /dev/ttyAMA0
-    chmod 0660 /dev/ttyAMA0
 
     # Permissions for LCD
     chown system system /sys/class/backlight/panel/brightness
@@ -420,6 +415,7 @@ on boot
     chown system system /sys/kernel/abb-charger/max_ac_c
     chown system system /sys/kernel/abb-charger/max_usb_c
     chown system system /sys/kernel/fsync/mode
+    chown system system /sys/kernel/bt404/sweep2wake
     chown system system /sys/module/mmc_core/parameters/use_spi_crc
 
     # camera debug
@@ -576,9 +572,9 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     oneshot
     
 service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class main
@@ -591,9 +587,9 @@ service iprenew_p2p /system/bin/dhcpcd -n
     oneshot
     
 service iprenew_bt-pan /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
+    class main
+    disabled
+    oneshot
 
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     class main
