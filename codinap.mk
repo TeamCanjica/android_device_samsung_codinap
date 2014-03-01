@@ -14,12 +14,9 @@ CODINA_PATH := device/samsung/codina
 
 DEVICE_PACKAGE_OVERLAYS += $(CODINA_PATH)/overlay
 
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-
+# Ace 2 settings
 PRODUCT_PACKAGES += \
-    GalaxyAce2Settings \
-    CMAccount
+    GalaxyAce2Settings
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -35,7 +32,6 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(CODINA_PATH)/configs/asound.conf:system/etc/asound.conf \
     $(CODINA_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(CODINA_PATH)/configs/adm.sqlite-u8500:system/etc/adm.sqlite-u8500
     
@@ -65,5 +61,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(CODINA_PATH)/configs/SwapStorages.sh:system/xbin/SwapStorages.sh
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
-    persist.sys.vold.switchexternal=0
+     persist.sys.vold.switchablepair=sdcard0,sdcard1 \
+     persist.sys.vold.switchexternal=0
