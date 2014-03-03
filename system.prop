@@ -1,25 +1,21 @@
 #
 # system.prop for GT-I8160P
 #
-debug.hwui.render_dirty_regions=false
-persist.service.adb.enable=1
-persist.sys.usb.config=mtp,adb
 rild.libargs=-d /dev/ttyS0
 rild.libpath=/system/lib/libsec-ril.so
 ro.telephony.call_ring.multiple=false
-ro.telephony.ril_class=SamsungU8500RIL
-ro.telephony.sends_barcount=1
 ro.sf.lcd_density=240
+ro.lcd_min_brightness=30
 ste.cam.back.orientation=90
-ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v113.dat
 ste.cam.front.orientation=270
+ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v113.dat
 ste.dbus.bus.address=unix:path=/dev/socket/dbus_ste
-ste.nmf.autoidle=1
 ste.omx.ctx=0
-ste.special_fast_dormancy=false
+ste.nmf.autoidle=1
 ste.video.dec.mpeg4.in.size=8192
 ste.video.dec.recycle.delay=1
 ste.video.enc.out.buffercnt=5
+ste.special_fast_dormancy=false
 dalvik.vm.dexopt-data-only=1
 
 # Hardware info
