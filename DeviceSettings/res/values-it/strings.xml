@@ -39,7 +39,7 @@
     <!-- CATEGORY: FSync -->
     <string name="fsync_subcat_title">FSync</string>
     <string name="fsync_title_head">Modalità FSync</string>
-    <string name="fsync_summary_head">Disabilitando Fsync puoi migliorare le performace I/O, ma potrebbe causare la corruzione dei dati. L\'Fsync dinamico sincronizzerà i buffer quando lo schermo si spegnerà.</string>
+    <string name="fsync_summary_head">Disabilitando Fsync puoi migliorare le performance I/O, ma potrebbe causare la corruzione dei dati. L\'Fsync dinamico sincronizzerà i buffer quando lo schermo si spegnerà.</string>
 
     <!-- CATEGORY: GPU -->
     <string name="gpu_subcat_title">GPU</string>

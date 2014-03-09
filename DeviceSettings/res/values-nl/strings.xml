@@ -63,7 +63,7 @@
     <!-- CATEGORY: FSync -->
     <string name="fsync_subcat_title">FSync</string>
     <string name="fsync_title_head">FSync mode</string>
-    <string name="fsync_summary_head">Disabling fsync can improve IO performace, but it may cause data corruption. Dynamic fsync will sync all buffers when screen turns off.</string>
+    <string name="fsync_summary_head">Disabling fsync can improve IO performance, but it may cause data corruption. Dynamic fsync will sync all buffers when screen turns off.</string>
 
     <!-- CATEGORY: GPU -->
     <string name="gpu_subcat_title">GPU</string>
