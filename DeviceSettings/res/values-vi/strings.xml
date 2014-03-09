@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+
+
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="app_name">Cài đặt Galaxy Ace 2</string>
+
+    <!-- TAB: General -->
+    <string name="category_general_title">Chung</string>
+
+    <!-- CATEGORY: Radio mode -->
+    <string name="radio_subcat_title">Chế độ sống</string>
+    <string name="hspa_title_head">HSPA</string>
+    <string name="hspa_summary_head">Bật HSDPA/HSUPA</string>
+
+    <!-- CATEGORY: Accelerometer -->
+    <string name="accelerometer_subcat_title">Gia tốc</string>
+    <string name="use_accelerometer_calibration_title_head">Sử dụng dữ liệu hiệu chuẩn</string>
+    <string name="use_accelerometer_calibration_summary_head">Sử dụng các giá trị hiệu chuẩn gia tốc. Làm một hiệu chuẩn sau khi kiểm tra này!</string>
+    <string name="calibrate_accelerometer_title_head">Hiệu chỉnh</string>
+    <string name="calibrate_accelerometer_summary_head">Đặt điện thoại của bạn trên một bề mặt phẳng, và bấm hiệu chỉnh</string>
+    <string name="accelerometer_dialog_head">Hiệu chuẩn thành công</string>
+    <string name="accelerometer_dialog_message">Cảm biến đã được hiệu chỉnh thành công.</string>
+
+    <!-- TAB: USB -->
+    <string name="category_usb_title">USB</string>
+
+    <!-- CATEGORY: USB OTG Settings -->
+    <string name="otg_subcat_title">Cài đặt USB OTG</string>
+    <string name="otg_power_title_head">Điện áp USB-VBUS</string>
+    <string name="otg_power_summary_head">Cho phép điện áp đầu ra với cổng USB</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="cc_subcat_title">Kiểm soát bộ sạc</string>
+    <string name="ac_cc_title_head">Chỉ số sạc sạc</string>
+    <string name="ac_cc_summary_head">Chỉ số sạc mAh, mức thấp bảo vệ pin nhưng mất nhiều thời gian để sạc, mức độ cao có thể làm hỏng pin</string>
+    <string name="usb_cc_title_head">Chỉ số sạc qua USB</string>
+    <string name="usb_cc_summary_head">Chỉ số sạc USB là mAh, hữu ích để thực hiện Fast Charge, mức thấp bảo vệ pin nhưng mất nhiều thời gian để sạc, mức độ cao có thể làm hỏng pin</string>
+
+    <!-- CATEGORY: Charger Control -->
+    <string name="deepsleep_subcat_title">Ngủ sâu</string>
+    <string name="deepest_sleep_title_head">Trạng thái ngủ sâu nhất</string>
+    <string name="deepest_sleep_summary_head">Xác định mức độ giấc ngủ sâu cao nhất</string>
+
+    <!-- TAB: ADVANCED -->
+    <string name="category_advanced_title">Nâng cao</string>
+
+    <!-- CATEGORY: FSync -->
+    <string name="fsync_subcat_title">FSync</string>
+    <string name="fsync_title_head">Chế độ FSync</string>
+    <string name="fsync_summary_head">Vô hiệu hóa fsync có thể cải thiện hiệu suất IO, nhưng nó có thể gây hỏng dữ liệu. Dynamic fsync sẽ đồng bộ tất cả các bộ đệm khi màn hình tắt.</string>
+
+    <!-- CATEGORY: GPU -->
+    <string name="gpu_subcat_title">GPU</string>
+    <string name="mali_l2_mr_title_head">Mali L2 Max Reads</string>
+    <string name="mali_l2_mr_summary_head">Tăng nó có thể cải thiện hiệu suất đồ họa.</string>
+    <string name="mali_pam_title_head">Kích thước bộ nhớ Mali dự bị được phân bổ</string>
+    <string name="mali_pam_summary_head">Tăng nó có thể cải thiện hiệu suất đồ họa.</string>
+
+    <!-- CATEGORY: MMC -->
+    <string name="mmc_subcat_title">MMC</string>
+    <string name="use_spi_crc_title_head">Vô hiệu hóa SPI CRC</string>
+    <string name="use_spi_crc_summary_head">Vô hiệu hóa SPI CRC có thể cải thiện hiệu suất mmc (10% - 30%) nhưng điện thoại có thể đóng băng ngẫu nhiên</string>
+
+    <!-- CATEGORY: STORAGE -->
+    <string name="storage_subcat_title">Bộ nhớ</string>
+    <string name="switch_storage_title_head">Swap bộ nhớ</string>
+    <string name="switch_storage_summary_head">Chuyển phân vùng lưu trữ bộ nhớ trong với bộ nhớ ngoài SD Card. Yêu cầu khởi động lại.</string>
+
+    <!-- CATEGORY: TouchScreen -->
+    <string name="touchscreen_subcat_title">Màn hình cảm ứng</string>
+    <string name="use_sweep2wake_title_head">Sweep2Wake</string>
+    <string name="use_sweep2wake_summary_head">Mở khóa thiết bị bằng cái trượt</string>
+
+</resources>
