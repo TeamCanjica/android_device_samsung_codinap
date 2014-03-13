@@ -5,7 +5,7 @@
     <string name="app_name">Ustawienia Galaxy Ace 2</string>
 
     <!-- TAB: General -->
-    <string name="category_general_title">OGÓLNE</string>
+    <string name="category_general_title">Ogólne</string>
 
     <!-- CATEGORY: Radio mode -->
     <string name="radio_subcat_title">Tryb Radia</string>
