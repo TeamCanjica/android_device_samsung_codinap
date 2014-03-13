@@ -47,7 +47,7 @@
     <!-- CATEGORY: FSync -->
     <string name="fsync_subcat_title">FSync</string>
     <string name="fsync_title_head">FSync mode</string>
-    <string name="fsync_summary_head">Isključivanjem fsync-a mogu se unaprijediti IO performance, ali može izazvati oštenćenje podataka. Dinamični fsync će sinkronizirati sve "buffere" kada se zaslon ugasi.</string>
+    <string name="fsync_summary_head">Isključivanjem fsync-a mogu se unaprijediti IO performanse, ali može izazvati oštenćenje podataka. Dinamični fsync će sinkronizirati sve "buffere" kada se zaslon ugasi.</string>
 
     <!-- CATEGORY: GPU -->
     <string name="gpu_subcat_title">GPU</string>
