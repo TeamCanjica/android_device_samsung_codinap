@@ -16,7 +16,7 @@
         <item>Dinamični Fsync</item>
     </string-array>
     <string-array name="cc_currency_usb_entries">
-        <item>800 mA *WARNING*</item>
+        <item>800 mA *UPOZORENJE*</item>
         <item>600 mA (Brzo punjenje)</item>
         <item>400 mA</item>
     </string-array>
