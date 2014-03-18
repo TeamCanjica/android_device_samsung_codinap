@@ -1,4 +1,4 @@
-import init.samsungcodina.usb.rc
+import /init.samsungcodina.usb.rc
 
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
@@ -10,7 +10,6 @@ on early-init
     mkdir /efs 0771 radio system
     mkdir /modemfs 0771 system system
     mkdir /preload 0771 system system
-    mkdir /mnt 0775 root system
     mkdir /mnt/.lfs 0755 root root
 
     # for backwards compatibility
@@ -18,7 +17,7 @@ on early-init
     symlink /storage/sdcard0 /mnt/sdcard
     symlink /storage/sdcard1 /extSdCard
     symlink /storage/sdcard1 /mnt/extSdCard
-    
+
     # KSM tunning
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
@@ -32,9 +31,6 @@ on init
     export OMX_STE_ENS_COMPONENTS_DIR /system/lib/ste_omxcomponents/
     export OMX_BELLAGIO_LOADER_REGISTRY /system/etc/omxloaders
     export OMX_STE_CSCALL_COMPONENTS_DIR /system/lib/ste_omxcomponents/
-    
-    # Add this so modem-supervisor find property_get
-    export LD_PRELOAD /system/lib/libcutils.so
 
     # Vibetonz
     export VIBE_PIPE_PATH /dev/pipes
@@ -58,8 +54,12 @@ on init
 on fs
 
     mount_all /fstab.samsungcodina
+
     setprop ro.crypto.fuse_sdcard false
 
+    # Start CSPSA before synchronously running the factory reset utility that
+    # checks the factory reset triggers in sysfs and CSPSA and then formats
+    # the block device belonging to /data.
     start cspsa
 
 on post-fs
@@ -113,9 +113,6 @@ on post-fs
     chown radio system /sys/class/sec/sec_touchkey/touch_sensitivity
     chown system radio /sys/class/sec/sec_touchscreen/tsp_firm_version_panel
     chown system radio /sys/class/sec/sec_touchscreen/tsp_firm_version_phone
-    chown system radio /sys/class/sec/tsp_noise_test/disp_all_refdata
-    chown system radio /sys/class/sec/tsp_noise_test/disp_all_deltadata
-    chown system system /sys/class/sec/sec_touchscreen/tsp_threshold
 
     # PRCMU debug fs
     chown radio system /debug/prcmu/ape_opp
@@ -270,8 +267,7 @@ on post-fs-data
     chown root radio /data/misc/ril_config
 
     # Create directory for STE OMX debug logs
-    mkdir /data/ste-debug 0775 system system
-
+    mkdir /data/ste-debug 0777 root root
 
     # create var/run, var/lib for avahi
     mkdir /var
@@ -288,9 +284,6 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on early-boot
-
-    # Launch core services in case charging mode is entered
-    start watchdog-kicker
 
     # Prepare modem
     class_start modem-u8500
@@ -353,6 +346,7 @@ on boot
     chmod 0664 /sys/class/sec/gps/GPS_ON_OFF/value
     chown root system /sys/class/sec/gps/GPS_nRST/value
     chmod 0664 /sys/class/sec/gps/GPS_nRST/value
+
     mkdir /data/gps 771 system system
     chown system system /data/gps
 
@@ -408,12 +402,22 @@ on boot
     chmod 0222 /sys/class/sec/flash/enable
 
     # system permissions for device parts
+    chown system system /d/cpuidle/deepest_state
     chown system system /sys/module/mali/parameters/mali_l2_max_reads
     chown system system /sys/module/mali/parameters/pre_allocated_memory_size_max
-    chown system system /d/cpuidle/deepest_state
     chown system system /sys/kernel/abb-regu/VOTG
     chown system system /sys/kernel/abb-charger/max_ac_c
     chown system system /sys/kernel/abb-charger/max_usb_c
+    chown system system /sys/kernel/abb-codec/anagain3
+    chown system system /sys/kernel/abb-codec/hsrdiggain
+    chown system system /sys/kernel/abb-codec/hsldiggain
+    chown system system /sys/kernel/abb-codec/hslowpow
+    chown system system /sys/kernel/abb-codec/hsdaclowpow
+    chown system system /sys/kernel/abb-codec/hshpen
+    chown system system /sys/kernel/abb-codec/classdhpg
+    chown system system /sys/kernel/abb-codec/classdwg
+    chown system system /sys/kernel/abb-codec/addiggain2
+    chown system system /sys/kernel/abb-codec/eardiggain
     chown system system /sys/kernel/fsync/mode
     chown system system /sys/kernel/bt404/sweep2wake
     chown system system /sys/module/mmc_core/parameters/use_spi_crc
@@ -433,28 +437,6 @@ on boot
     # Modem
     class_start modem
     class_start default
-
-# Make sure we startup btld before hcid
-service btld /system/bin/btld -hb 3000000 -hp /dev/ttyAMA0 -lpm 1
-    user root
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-# for bluetooth
-service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes --tosleep 5000 \
-    --baudrate 3000000 -use_baudrate_for_download --patchram /system/bin/bcm4330.hcd /dev/ttyAMA0
-    class main
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-# for bluetooth rf test
-service bt_dut_cmd /system/bin/bcm_dut
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
 
 # Crash Safe Parameter Storage Area, serving production parameter requests from clients.
 # Configuration is read from file "/etc/cspsa.conf" and each found area spawns a CSPSA server
@@ -510,14 +492,6 @@ service at_distributor /system/bin/at_distributor
     user root
     group radio log
 
-service watchdog-kicker /system/xbin/watchdog-kicker -d /dev/watchdog -t 120
-    class main
-    oneshot
-
-service battery_params /system/xbin/battery_params
-    class main
-    oneshot
-
 service usbid_init /system/bin/usbid_init.sh
     class main
     oneshot
@@ -527,19 +501,19 @@ service mobex-daemon /system/bin/npsmobex
     user system
     group system radio inet sdcard_rw
 
-# SA, System SW, SAMSUNG
-service bugreport /system/bin/bugmailer.sh -v
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
-
 # Vibetonz
 service immvibed /system/bin/immvibed
     class core
     user shell
     group shell
     oneshot
+
+# GPS
+service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+    class main
+    user gps
+    group system inet net_raw
+    ioprio be 0
 
 on property:ro.dumpstate.dmesg=1
     write /proc/sys/kernel/dmesg_restrict 0
@@ -570,7 +544,7 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     class main
     disabled
     oneshot
-    
+
 service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
     class main
     disabled
@@ -585,29 +559,15 @@ service iprenew_p2p /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
-    
+
 service iprenew_bt-pan /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
 
-service gpsd /system/bin/gpsd -c /system/etc/gps.xml
-    class main
-    user gps
-    group system net_raw
-    ioprio be 0
-
-#for WiFi MFG(TestMode)
-service mfgloader /system/bin/mfgloader
+# Bugreport is triggered by holding down volume down, volume up and power
+service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
     class main
     disabled
     oneshot
-
-service wlandutservice /system/bin/wlandutservice
-    class main
-    user system
-    group wifi net_raw net_admin system inet
-    disabled
-    oneshot
-
-# end of wifi
+    keycodes 114 115 116

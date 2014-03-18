@@ -29,7 +29,7 @@ import com.cyanogenmod.settings.device.R;
 
 public class USBFragmentActivity extends PreferenceFragment {
 
-	private static final String TAG = "GalaxyAce2_Settings_Usb";
+	private static final String TAG = "GalaxyAce2_Settings_USB";
 	private final String FILE = "/sys/kernel/abb-regu/VOTG";
 
 	@Override

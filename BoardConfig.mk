@@ -16,3 +16,6 @@ TARGET_RECOVERY_FSTAB := device/samsung/codina/rootdir/fstab.samsungcodina
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
+
+# Hardware tunables (device parts replacement)
+BOARD_HARDWARE_CLASS := device/samsung/codina/cmhw

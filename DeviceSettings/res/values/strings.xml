@@ -47,7 +47,7 @@
     <!-- CATEGORY: FSync -->
     <string name="fsync_subcat_title">FSync</string>
     <string name="fsync_title_head">FSync mode</string>
-    <string name="fsync_summary_head">Disabling fsync can improve IO performace, but it may cause data corruption. Dynamic fsync will sync all buffers when screen turns off.</string>
+    <string name="fsync_summary_head">Disabling fsync can improve IO performance, but it may cause data corruption. Dynamic fsync will sync all buffers when screen turns off.</string>
 
     <!-- CATEGORY: GPU -->
     <string name="gpu_subcat_title">GPU</string>
@@ -70,5 +70,31 @@
     <string name="touchscreen_subcat_title">Touchscreen</string>
     <string name="use_sweep2wake_title_head">Sweep2Wake</string>
     <string name="use_sweep2wake_summary_head">Unlock device with a swype</string>
+    
+    <!-- TAB: AUDIO -->
+    <string name="category_audio_title">Audio</string>
+    
+    <!-- CATEGORY: ABBAmp -->
+    <string name="abbamp_subcat_title">ABBAmp</string>
+    <string name="enable_anagain3_title_head">AnaGain3</string>
+    <string name="enable_anagain3_summary_head">Enable headset analog gain path.</string>
+    <string name="enable_hsldiggain_title_head">HsLDigGain</string>
+    <string name="enable_hsldiggain_summary_head">Enable headset left digital path gain.</string>
+    <string name="enable_hsrdiggain_title_head">HsRDigGain</string>
+    <string name="enable_hsrdiggain_summary_head">Enable headset right digital path gain.</string>
+    <string name="enable_hslowpow_title_head">HsLowPow</string>
+    <string name="enable_hslowpow_summary_head">Enable headset driver low power mode.</string>
+    <string name="enable_hsdaclowpow_title_head">HsDacLowPow</string>
+    <string name="enable_hsdaclowpow_summary_head">Enable headset digital-to-analog converter low power mode.</string>
+    <string name="enable_hshpen_title_head">HsHpEn</string>
+    <string name="enable_hshpen_summary_head">Enable headset high pass filter.</string>
+    <string name="enable_classdhpg_title_head">ClassDHPG</string>
+    <string name="enable_classdhpg_summary_head">Enable ClassD amplifier high-pass gain.</string>
+    <string name="enable_classdwg_title_head">ClassDDithWGain</string>
+    <string name="enable_classdwg_summary_head">Enable control for the white component of dithering filter.</string>
+    <string name="enable_addiggain2_title_head">ADDigGain2</string>
+    <string name="enable_addiggain2_summary_head">Enable phone microphone digital path gain.</string>
+    <string name="enable_eardiggain_title_head">EarDigGain</string>
+    <string name="enable_eardiggain_summary_head">Enable earpiece digital path gain.</string>
 
 </resources>

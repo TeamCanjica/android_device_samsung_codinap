@@ -24,12 +24,6 @@
         <item>28kb (stock)</item>
         <item>48kb (predefinito)</item>
     </string-array>
-    <string-array name="mali_pam_entries">
-        <item>16mb</item>
-        <item>24mb</item>
-        <item>32mb</item>
-        <item>48mb</item>
-    </string-array>
     <string-array name="fsync_mode_entries">
         <item>Abilitato (predefinito)</item>
         <item>Disabilitato</item>

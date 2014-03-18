@@ -38,15 +38,11 @@ PRODUCT_COPY_FILES += \
     $(CODINA_PATH)/configs/asound.conf:system/etc/asound.conf \
     $(CODINA_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(CODINA_PATH)/configs/adm.sqlite-u8500:system/etc/adm.sqlite-u8500
-    
-# Dbus
-PRODUCT_COPY_FILES += \
-    $(CODINA_PATH)/configs/dbus.conf:system/etc/dbus.conf
 
 # Gps
 PRODUCT_COPY_FILES += \
     $(CODINA_PATH)/configs/gps.conf:system/etc/gps.conf
-	
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
