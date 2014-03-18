@@ -49,6 +49,16 @@ public class DeviceSettings extends FragmentActivity {
 	public static final String KEY_USE_SWEEP2WAKE = "use_sweep2wake";
 	public static final String KEY_USE_SPI_CRC = "use_spi_crc";
 	public static final String KEY_SWITCH_STORAGE = "switch_storage";
+	public static final String KEY_ENABLE_ANAGAIN3 = "enable_anagain3";
+	public static final String KEY_ENABLE_HSLDIGGAIN = "enable_hsldiggain";
+	public static final String KEY_ENABLE_HSRDIGGAIN = "enable_hsrdiggain";
+	public static final String KEY_ENABLE_HSLOWPOW = "enable_hslowpow";
+	public static final String KEY_ENABLE_HSDACLOWPOW = "enable_hsdaclowpow";
+	public static final String KEY_ENABLE_HSHPEN = "enable_hshpen";
+	public static final String KEY_ENABLE_CLASSDHPG = "enable_classdhpg";
+	public static final String KEY_ENABLE_CLASSDWG = "enable_classdwg";
+	public static final String KEY_ENABLE_ADDIGGAIN2 = "enable_addiggain2";
+	public static final String KEY_ENABLE_EARDIGGAIN = "enable_eardiggain";
 
 	ViewPager mViewPager;
 	TabsAdapter mTabsAdapter;
@@ -77,6 +87,9 @@ public class DeviceSettings extends FragmentActivity {
 		mTabsAdapter.addTab(
 				bar.newTab().setText(R.string.category_advanced_title),
 				AdvancedFragmentActivity.class, null);
+		mTabsAdapter.addTab(
+				bar.newTab().setText(R.string.category_audio_title),
+				AudioFragmentActivity.class, null);
 
 		if (savedInstanceState != null) {
 			bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));

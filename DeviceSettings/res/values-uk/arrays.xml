@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2012 The CyanogenMod Project
 
@@ -23,71 +23,30 @@
         <item>28КБ (від виробника)</item>
         <item>48КБ (за умовчанням)</item>
     </string-array>
-    <string-array name="mali_l2_mr_entries_values" translatable="false">
-        <item>28</item>
-        <item>48</item>
-    </string-array>
-    <string-array name="mali_pam_entries">
-        <item>16МБ</item>
-        <item>24МБ</item>
-        <item>32МБ</item>
-        <item>48МБ</item>
-    </string-array>
-    <string-array name="mali_pam_entries_values" translatable="false">
-        <item>16777216</item>
-        <item>25165824</item>
-        <item>33554432</item>
-        <item>50331648</item>
-    </string-array>
     <string-array name="fsync_mode_entries">
         <item>Увімкнено (за умовчанням)</item>
         <item>Вимкнено</item>
         <item>Динамічний</item>
-    </string-array>
-    <string-array name="fsync_mode_entries_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
     <string-array name="cc_currency_usb_entries">
         <item>800 мА *УВАГА*</item>
         <item>600 мА (швидка зарядка)</item>
         <item>400 мА</item>
     </string-array>
-    <string-array name="cc_currency_usb_entries_values" translatable="false">
-        <item>800</item>
-        <item>600</item>
-        <item>400</item>
-    </string-array>
     <string-array name="deepest_sleep_states_entries">
         <item>Стан 5</item>
         <item>Стан 4</item>
         <item>Стан 3 (за умовчанням)</item>
-    </string-array>
-    <string-array name="deepest_sleep_states_entries_values" translatable="false">
-        <item>5</item>
-        <item>4</item>
-        <item>3</item>
     </string-array>
     <string-array name="cc_currency_charger_entries">
         <item>800 мА *УВАГА*</item>
         <item>600 мА (за умовчанням)</item>
         <item>400 мА</item>
     </string-array>
-    <string-array name="cc_currency_charger_entries_values" translatable="false">
-        <item>800</item>
-        <item>600</item>
-        <item>400</item>
-    </string-array>
     <string-array name="hspa_entries">
         <item>Тільки UMTS</item>
         <item>Тільки HSDPA</item>
         <item>HSDPA + HSUPA</item>
-    </string-array>
-    <string-array name="hspa_entries_values" translatable="false">
-        <item>21</item>
-        <item>22</item>
-        <item>23</item>
     </string-array>
 
 </resources>

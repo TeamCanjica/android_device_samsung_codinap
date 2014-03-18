@@ -9,7 +9,6 @@ ro.lcd_min_brightness=30
 ste.cam.back.orientation=90
 ste.cam.front.orientation=270
 ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v113.dat
-ste.dbus.bus.address=unix:path=/dev/socket/dbus_ste
 ste.omx.ctx=0
 ste.nmf.autoidle=1
 ste.video.dec.mpeg4.in.size=8192

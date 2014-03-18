@@ -33,5 +33,6 @@ public class Startup extends BroadcastReceiver {
 		MaliL2MaxReads.restore(context);
 		MaliPreAllocMem.restore(context);
 		AdvancedFragmentActivity.restore(context);
+		AudioFragmentActivity.restore(context);
 	}
 }
