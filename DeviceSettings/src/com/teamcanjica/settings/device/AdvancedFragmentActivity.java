@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
 
-import com.cyanogenmod.settings.device.R;
+import com.teamcanjica.settings.device.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -41,13 +41,15 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 
 	private static final String FILE_BLN = "/sys/class/misc/backlightnotification/enabled";
 
+	private static final String FILE_UKSM = "/sys/kernel/mm/uksm/run";
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		addPreferencesFromResource(R.xml.advanced_preferences);
 
-		PreferenceScreen prefSet = getPreferenceScreen();
+//		PreferenceScreen prefSet = getPreferenceScreen();
 	}
 
 	@Override
@@ -96,7 +98,13 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 		if (key.equals(DeviceSettings.KEY_DISABLE_BLN)) {
 			boxValue = (((CheckBoxPreference) preference).isChecked() ? "0"
 					: "1");
-			Utils.writeValue(FILE_BLN, ((CheckBoxPreference) preference).isChecked() ? "0" : "1");
+			Utils.writeValue(FILE_BLN, boxValue);
+		}
+
+		if (key.equals(DeviceSettings.KEY_ENABLE_UKSM)) {
+			boxValue = (((CheckBoxPreference) preference).isChecked() ? "1"
+					: "0");
+			Utils.writeValue(FILE_BLN, boxValue);
 		}
 
 		return true;
@@ -123,6 +131,10 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 		String blnvalue = sharedPrefs.getBoolean(
 				DeviceSettings.KEY_DISABLE_BLN, true) ? "0" : "1";
 		Utils.writeValue(FILE_BLN, blnvalue);
+
+		String uksmvalue = sharedPrefs.getBoolean(
+				DeviceSettings.KEY_ENABLE_UKSM, false) ? "1" : "0";
+		Utils.writeValue(FILE_UKSM, uksmvalue);
 
 	}
 

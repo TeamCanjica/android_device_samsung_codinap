@@ -17,7 +17,7 @@
     </PreferenceCategory>
     
    <PreferenceCategory android:title="@string/scheduler_subcat_title" >
-       <com.cyanogenmod.settings.device.ReadaheadkB
+       <com.teamcanjica.settings.device.ReadaheadkB
            android:defaultValue="512"
            android:dialogMessage="@string/readaheadkb_dialog_message"
            android:max="4096"
@@ -25,6 +25,10 @@
            cyanogenmod:progressTextSuffix="kB"
            android:key="readaheadkb"
            android:title="@string/readaheadkb_title_head" />
+       <CheckBoxPreference
+           android:key="enable_uksm"
+           android:summary="@string/enable_uksm_summary_head"
+           android:title="@string/enable_uksm_title_head" />
    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/mmc_subcat_title" >

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -14,66 +14,61 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
+
+import com.teamcanjica.settings.device.R;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.preference.CheckBoxPreference;
 import android.util.Log;
 
-import com.cyanogenmod.settings.device.R;
+public class PowermgmtFragmentActivity extends PreferenceFragment {
 
-public class USBFragmentActivity extends PreferenceFragment {
+	private static final String TAG = "GalaxyAce2_Settings_Advanced";
 
-	private static final String TAG = "GalaxyAce2_Settings_USB";
-	private static final String FILE = "/sys/kernel/abb-regu/VOTG";
+	private static final String FILE_WIFI_PM = "/sys/module/dhd/parameters/dhdpm_fast";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.usb_preferences);
+		addPreferencesFromResource(R.xml.powermgmt_preferences);
 
-		PreferenceScreen prefSet = getPreferenceScreen();
-
-		prefSet.findPreference(DeviceSettings.KEY_AC_CURRENCY).setEnabled(
-				ChargerCurrency.isSupported());
-		prefSet.findPreference(DeviceSettings.KEY_USB_CURRENCY).setEnabled(
-				UsbCurrency.isSupported());
-		prefSet.findPreference(DeviceSettings.KEY_USB_OTG_POWER).setEnabled(
-				isSupported(FILE));
-
+//		PreferenceScreen prefSet = getPreferenceScreen();
 	}
 
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			Preference preference) {
 
-		// String boxValue;
+		String boxValue;
 		String key = preference.getKey();
 
 		Log.w(TAG, "key: " + key);
 
-		if (key.equals(DeviceSettings.KEY_USB_OTG_POWER)) {
-			if (((CheckBoxPreference) preference).isChecked()) {
-				Utils.writeValue(FILE, "1");
-			} else {
-				Utils.writeValue(FILE, "0");
-			}
+		if (key.equals(DeviceSettings.KEY_USE_WIFIPM_MAX)) {
+			boxValue = (((CheckBoxPreference) preference).isChecked() ? "0"
+					: "1");
+			Utils.writeValue(FILE_WIFI_PM, boxValue);
 		}
 
 		return true;
 	}
 
-	public static boolean isSupported(String FILE) {
-		return Utils.fileExists(FILE);
+	public static void restore(Context context) {
+		SharedPreferences sharedPrefs = PreferenceManager
+				.getDefaultSharedPreferences(context);
+
+		String wifipmvalue = sharedPrefs.getBoolean(
+				DeviceSettings.KEY_USE_WIFIPM_MAX, false) ? "0" : "1";
+		Utils.writeValue(FILE_WIFI_PM, wifipmvalue);
+
 	}
 
-	public static void restore(Context context) {
-		PreferenceManager.getDefaultSharedPreferences(context);
-	}
 }

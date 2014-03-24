@@ -1,4 +1,6 @@
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
+
+import com.teamcanjica.settings.device.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,16 +14,16 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 public class CustomSeekBarDialogPreference extends DialogPreference {
-    private static final int DEFAULT_MIN_PROGRESS = 0;
-    private static final int DEFAULT_MAX_PROGRESS = 100;
-    private static final int DEFAULT_PROGRESS = 0;
+    protected static final int DEFAULT_MIN_PROGRESS = 0;
+    protected static final int DEFAULT_MAX_PROGRESS = 100;
+    protected static final int DEFAULT_PROGRESS = 0;
  
-    private int mMinProgress;
-    private int mMaxProgress;
-    private int mProgress;
-    private CharSequence mProgressTextSuffix;
-    private TextView mProgressText;
-    private SeekBar mSeekBar;
+    protected int mMinProgress;
+    protected int mMaxProgress;
+    protected int mProgress;
+    protected CharSequence mProgressTextSuffix;
+    protected TextView mProgressText;
+    protected SeekBar mSeekBar;
  
     public CustomSeekBarDialogPreference(Context context)
     {
@@ -200,7 +202,7 @@ public class CustomSeekBarDialogPreference extends DialogPreference {
         super.onRestoreInstanceState(myState.getSuperState());
     }
  
-    private static class SavedState extends BaseSavedState
+    protected static class SavedState extends BaseSavedState
     {
         int minProgress;
         int maxProgress;
@@ -230,7 +232,6 @@ public class CustomSeekBarDialogPreference extends DialogPreference {
             dest.writeInt(progress);
         }
  
-        @SuppressWarnings("unused")
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>()
         {
             @Override

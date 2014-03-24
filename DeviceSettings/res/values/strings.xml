@@ -3,6 +3,7 @@
 
     <!-- App name -->
     <string name="app_name">Galaxy Ace 2 Settings</string>
+    <string name="image">Thumbnail</string>
 
     <!-- CATEGORY: Network -->
 
@@ -132,6 +133,9 @@
     <!-- SUBCATEGORY: Scheduler -->
     <string name="readaheadkb_dialog_message">Select the readahead buffer size.</string>
     <string name="readaheadkb_title_head">Readahead buffer size</string>
+    <string name="enable_uksm_title_head">Enable UKSM</string>
+    <string name="enable_uksm_summary_head">Enabling Ultra Kernel SamePage Merging, better RAM management but more CPU consumption.</string>
+
     <!-- SUBCATEGORY: MMC -->
     <string name="mmc_subcat_title">MMC</string>
     <string name="use_spi_crc_title_head">Disable SPI CRC</string>

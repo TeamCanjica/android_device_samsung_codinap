@@ -1,4 +1,9 @@
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.teamcanjica.settings.device.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,10 +14,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class DeviceSettings extends Activity implements OnItemClickListener{
-	
 
-	public static final String SHARED_PREFERENCES_BASENAME = "com.cyanogenmod.settings.device";
-	public static final String ACTION_UPDATE_PREFERENCES = "com.cyanogenmod.settings.device.UPDATE";
+	public static final String SHARED_PREFERENCES_BASENAME = "com.teamcanjica.settings.device";
+	public static final String ACTION_UPDATE_PREFERENCES = "com.teamcanjica.settings.device.UPDATE";
 	public static final String KEY_HSPA = "hspa";
 	public static final String KEY_USE_ACCELEROMETER_CALIBRATION = "use_accelerometer_calibration";
 	public static final String KEY_CALIBRATE_ACCELEROMETER = "calibrate_accelerometer";
@@ -44,23 +48,46 @@ public class DeviceSettings extends Activity implements OnItemClickListener{
 	public static final String KEY_SCHED_MC = "sched_mc";
 	public static final String KEY_DISABLE_BLN = "disable_bln";
 	public static final String KEY_READAHEADKB = "readaheadkb";
+	public static final String KEY_ENABLE_UKSM = "enable_uksm";
 	
 	public static final String SELECTION = "selection";
-	ListView settingsList;
 	
+	public static final String[] titles = new String[] { "Network",
+        "USB", "Audio", "Screen", "Power Management", "Advanced" };
+
+	public static final Integer[] images = { R.drawable.network,
+        R.drawable.usb, R.drawable.audio, R.drawable.screen,
+        R.drawable.powermgmt, R.drawable.advanced };
+
+	ListView listView;
+	List<RowItem> rowItems;
+
+	/** Called when the activity is first created. */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_device_settings);
-		settingsList = (ListView) findViewById(R.id.settingsList);
-		settingsList.setOnItemClickListener(this);
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_device_settings);
+
+		rowItems = new ArrayList<RowItem>();
+		for (int i = 0; i < titles.length; i++) {
+			RowItem item = new RowItem(images[i], titles[i]);
+			rowItems.add(item);
+		}
+
+		listView = (ListView) findViewById(R.id.settingsList);
+		CustomListViewAdapter adapter = new CustomListViewAdapter(this,
+            R.layout.list_item, rowItems);
+		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(this);
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> adapter, View view, int index, long arg3) {
+	public void onItemClick(AdapterView<?> adapter, View view, int index,
+			long id) {
 		Intent intent = new Intent(this, ContainerActivity.class);
 		intent.putExtra(SELECTION, index);
-		startActivity(intent);		
+		startActivity(intent);	
+		
 	}
 
 }

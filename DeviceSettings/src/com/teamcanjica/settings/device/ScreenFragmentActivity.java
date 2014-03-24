@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
 
-import com.cyanogenmod.settings.device.R;
+import com.teamcanjica.settings.device.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;

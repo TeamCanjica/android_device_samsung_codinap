@@ -6,24 +6,24 @@
             android:key="use_sweep2wake"
             android:summary="@string/use_sweep2wake_summary_head"
             android:title="@string/use_sweep2wake_title_head" />
-        <com.cyanogenmod.settings.device.S2WThreshold
+        <com.teamcanjica.settings.device.S2WThreshold
             android:key="x_sweep2wake"
             android:summary="@string/x_sweep2wake_summary_head"
             android:title="@string/x_sweep2wake_title_head"
-            android:digits="123456789"
+            android:digits="0123456789"
             android:inputType="number"
             android:defaultValue="120" />
-        <com.cyanogenmod.settings.device.S2WThreshold
+        <com.teamcanjica.settings.device.S2WThreshold
             android:key="y_sweep2wake"
             android:summary="@string/y_sweep2wake_summary_head"
             android:title="@string/y_sweep2wake_title_head"
-            android:digits="123456789"
+            android:digits="0123456789"
             android:inputType="number"
             android:defaultValue="240" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/fsync_subcat_title" >
-        <com.cyanogenmod.settings.device.FsyncMode
+        <com.teamcanjica.settings.device.FsyncMode
             android:defaultValue="0"
             android:entries="@array/fsync_mode_entries"
             android:entryValues="@array/fsync_mode_entries_values"
@@ -33,7 +33,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/gpu_subcat_title" >
-        <com.cyanogenmod.settings.device.MaliL2MaxReads
+        <com.teamcanjica.settings.device.MaliL2MaxReads
             android:defaultValue="48"
             android:entries="@array/mali_l2_mr_entries"
             android:entryValues="@array/mali_l2_mr_entries_values"
@@ -41,7 +41,7 @@
             android:summary="@string/mali_l2_mr_summary_head"
             android:title="@string/mali_l2_mr_title_head" />
 
-        <com.cyanogenmod.settings.device.MaliPreAllocMem
+        <com.teamcanjica.settings.device.MaliPreAllocMem
             android:defaultValue="50331648"
             android:entries="@array/mali_pam_entries"
             android:entryValues="@array/mali_pam_entries_values"

@@ -1,23 +1,18 @@
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
+
+import com.teamcanjica.settings.device.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.widget.SeekBar;
 
-public class AnaGain3Control extends CustomSeekBarDialogPreference {
-	
-	private static final int DEFAULT_MIN_PROGRESS = 0;
-    private static final int DEFAULT_MAX_PROGRESS = 100;
- 
-    private int mMinProgress;
-    private SeekBar mSeekBar;
-    
-    private static final String FILE = " /sys/kernel/abb-codec/anagain3";
+public class ReadaheadkB extends CustomSeekBarDialogPreference {
 
-	public AnaGain3Control(Context context) {
+    private static final String FILE = " /sys/block/mmcblk0/queue/read_ahead_kb";
+
+	public ReadaheadkB(Context context) {
 		this(context, null);
 	}
 
@@ -38,11 +33,11 @@ public class AnaGain3Control extends CustomSeekBarDialogPreference {
 
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		Utils.writeValue(FILE, "gain=" +
-				sharedPrefs.getString(DeviceSettings.KEY_ANAGAIN3_CONTROL, "0"));
+		Utils.writeValue(FILE,
+				sharedPrefs.getString(DeviceSettings.KEY_READAHEADKB, "0"));
 	}
 
-	public AnaGain3Control(Context context, AttributeSet attrs)
+	public ReadaheadkB(Context context, AttributeSet attrs)
     {
         super(context, attrs);
  
@@ -77,7 +72,7 @@ public class AnaGain3Control extends CustomSeekBarDialogPreference {
             int seekBarProgress = mSeekBar.getProgress() + mMinProgress;
             if (callChangeListener(seekBarProgress))
             {
-                Utils.writeValue(FILE, "gain=" + seekBarProgress);
+                Utils.writeValue(FILE, "" + seekBarProgress);
                 setProgress(seekBarProgress);
             }
         }

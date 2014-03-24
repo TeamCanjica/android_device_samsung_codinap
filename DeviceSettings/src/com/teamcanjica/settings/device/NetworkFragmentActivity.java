@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.teamcanjica.settings.device;
+
+import com.teamcanjica.settings.device.R;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
