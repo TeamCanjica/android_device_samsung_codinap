@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
 
     <application android:label="@string/app_name"
-            android:icon="@drawable/ic_launcher_Ace2Settings"
+            android:icon="@drawable/ic_launcher_ace2settings"
             android:allowBackup="true" >
         <activity
             android:name="com.teamcanjica.settings.device.DeviceSettings"
@@ -34,19 +34,19 @@
 		<activity android:name="com.teamcanjica.settings.device.ContainerActivity" />
 
 		<activity android:name="com.teamcanjica.settings.device.NetworkFragmentActivity"
-				android:icon="@drawable/GalaxyAce2Settings_network" />
+				android:icon="@drawable/network_icon" />
 
 		<activity android:name="com.teamcanjica.settings.device.USBFragmentActivity"
-				android:icon="@drawable/GalaxyAce2Settings_usb" />
+				android:icon="@drawable/usb_icon" />
 
 		<activity android:name="com.teamcanjica.settings.device.AudioFragmentActivity"
-				android:icon="@drawable/GalaxyAce2Settings_audio" />
+				android:icon="@drawable/audio_icon" />
 
 		<activity android:name="com.teamcanjica.settings.device.ScreenFragmentActivity"
-				android:icon="@drawable/GalaxyAce2Settings_screen" />
+				android:icon="@drawable/screen_icon" />
 
 		<activity android:name="com.teamcanjica.settings.device.PowermgmtFragmentActivity"
-				android:icon="@drawable/GalaxyAce2Settings_powermgmt" />
+				android:icon="@drawable/powermgmt_icon" />
 
 		<activity android:name="com.teamcanjica.settings.device.AdvancedFragmentActivity" />
 
