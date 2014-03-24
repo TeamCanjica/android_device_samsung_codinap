@@ -10,7 +10,7 @@
             android:title="@string/enable_anagain3_title_head" />
         
         <!-- AnaGain3 Control -->
-        <com.cyanogenmod.settings.device.AnaGain3Control
+        <com.teamcanjica.settings.device.AnaGain3Control
         	android:defaultValue="0"
         	android:dialogMessage="@string/anagain3_control_dialog_message"
         	android:max="15"
