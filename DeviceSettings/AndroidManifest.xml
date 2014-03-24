@@ -7,10 +7,10 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
 
-    <application android:label="@string/app_name">
+    <application android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher_cmdevicesettings" >
         <activity
             android:name="com.cyanogenmod.settings.device.DeviceSettings"
-            android:icon="@drawable/ic_launcher_cmdevicesettings"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS" />
@@ -24,11 +24,14 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-		
-		<activity android:name=".GeneralFragmentActivity" />
-        <activity android:name=".USBFragmentActivity" />
-        <activity android:name=".AdvancedFragmentActivity" />
-      	<activity android:name=".AudioFragmentActivity" />
+
+		<activity android:name=".ContainerActivity" />
+		<activity android:name=".NetworkFragmentActivity" />
+		<activity android:name=".USBFragmentActivity" />
+		<activity android:name=".AudioFragmentActivity" />
+		<activity android:name=".ScreenFragmentActivity" />
+		<activity android:name=".PowermgmtFragmentActivity" />
+		<activity android:name=".AdvancedFragmentActivity" />
         
     </application>
 </manifest>

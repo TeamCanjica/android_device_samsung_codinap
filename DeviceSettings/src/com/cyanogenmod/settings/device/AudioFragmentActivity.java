@@ -56,8 +56,7 @@ public class AudioFragmentActivity extends PreferenceFragment {
 
 		addPreferencesFromResource(R.xml.audio_preferences);
 
-		PreferenceScreen prefSet = getPreferenceScreen();
-
+//		PreferenceScreen prefSet = getPreferenceScreen();
 	}
 	
 	@Override

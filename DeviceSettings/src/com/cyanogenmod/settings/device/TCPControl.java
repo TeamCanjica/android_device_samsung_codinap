@@ -16,56 +16,65 @@
 
 package com.cyanogenmod.settings.device;
 
+import java.io.IOException;
+
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.AttributeSet;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
+import android.util.AttributeSet;
 
-public class Hspa extends ListPreference implements OnPreferenceChangeListener {
-
-	private static final String FILE = "/system/app/SamsungServiceMode.apk";
-	private Context mCtx;
-
-	public Hspa(Context context, AttributeSet attrs) {
+public class TCPControl extends ListPreference implements
+		OnPreferenceChangeListener {
+	
+	public TCPControl(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.setOnPreferenceChangeListener(this);
-		mCtx = context;
 	}
-
-	public static boolean isSupported() {
-		return Utils.fileExists(FILE);
-	}
-
+	
+	static Process process;
+	static String newValueString;
+	
+	final static String[] COMMAND = {
+			"su", "-c",
+			"busybox sysctl -w net.ipv4.tcp_congestion_control=" +
+			newValueString
+		};
+	
 	/**
-	 * Restore HSPA setting from SharedPreferences. (Write to kernel.)
+	 * Restore TCP Control algorithm from SharedPreferences.
 	 * 
 	 * @param context
 	 *            The context to read the SharedPreferences from
 	 */
 	public static void restore(Context context) {
-		if (!isSupported()) {
-			return;
-		}
-
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
-		sendIntent(context,
-				sharedPrefs.getString(DeviceSettings.KEY_HSPA, "23"));
+		newValueString = sharedPrefs.getString(DeviceSettings.KEY_TCP_CONTROL, "cubic");
+		try {
+			process = Runtime.getRuntime().exec(COMMAND);
+			process.waitFor();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
+	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
-		sendIntent(mCtx, (String) newValue);
+		newValueString = (String) newValue;
+		try {
+			process = Runtime.getRuntime().exec(COMMAND);
+			process.waitFor();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 
-	private static void sendIntent(Context context, String value) {
-		Intent i = new Intent("com.cyanogenmod.SamsungServiceMode.EXECUTE");
-		i.putExtra("sub_type", 20); // HSPA Setting
-		i.putExtra("data", value);
-		context.sendBroadcast(i);
-	}
 }

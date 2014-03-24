@@ -39,7 +39,7 @@ public class FsyncMode extends ListPreference implements
 	}
 
 	/**
-	 * Restore deepest sleep state from SharedPreferences.
+	 * Restore Fsync mode from SharedPreferences.
 	 * 
 	 * @param context
 	 *            The context to read the SharedPreferences from
