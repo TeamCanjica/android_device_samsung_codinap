@@ -29,7 +29,6 @@
         <item>600 mA (Brzo punjenje)</item>
         <item>400 mA</item>
     </string-array>
-    </string-array>
     <string-array name="cc_currency_charger_entries">
         <item>800 mA   *UPOZORENJE*</item>
         <item>600 mA (Zadano)</item>
