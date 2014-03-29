@@ -46,6 +46,7 @@
         <item>Samo UMTS</item>
         <item>Samo HSDPA</item>
         <item>HSDPA + HSUPA</item>
+    </string-array>
 
     <!-- Scheduler -->
     <string-array name="sched_mc_entries">
