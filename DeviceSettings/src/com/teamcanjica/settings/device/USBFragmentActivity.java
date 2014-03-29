@@ -48,8 +48,8 @@ public class USBFragmentActivity extends PreferenceFragment {
 		prefSet.findPreference(DeviceSettings.KEY_USB_OTG_POWER).setEnabled(
 				isSupported(FILE));
 				
-		getActionBar().setTitle(getResources().getString(R.string.usb_name));
-		getActionBar().setIcon(getResources().getDrawable(R.drawable.usb_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.usb_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.usb_icon));
 
 	}
 

@@ -59,8 +59,8 @@ public class AudioFragmentActivity extends PreferenceFragment {
 
 		addPreferencesFromResource(R.xml.audio_preferences);
 
-		getActionBar().setTitle(getResources().getString(R.string.audio_name));
-		getActionBar().setIcon(getResources().getDrawable(R.drawable.audio_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.audio_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.audio_icon));
 	}
 	
 	@Override

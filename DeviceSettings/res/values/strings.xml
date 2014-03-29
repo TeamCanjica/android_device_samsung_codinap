@@ -109,8 +109,8 @@
     <string name="powermgmt_name">Power Management</string>
 
     <!-- SUBCATEGORY: WIFI -->
-    <string name="wifi_subcat_title">Wifi</string>
-    <string name="use_wifipm_max_title_head">Use Wifi PM_MAX mode</string>
+    <string name="wifi_subcat_title">Wi-Fi</string>
+    <string name="use_wifipm_max_title_head">Use Wi-Fi PM_MAX mode</string>
     <string name="use_wifipm_max_summary_head">Using PM_MAX saves power, but internet speed is reduced.</string>
 
     <!-- SUBCATEGORY: Scheduler -->

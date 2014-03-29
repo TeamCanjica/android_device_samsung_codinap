@@ -31,8 +31,8 @@ public class NetworkFragmentActivity extends PreferenceFragment {
 
 		addPreferencesFromResource(R.xml.network_preferences);
 
-		getActionBar().setTitle(getResources().getString(R.string.network_name));
-		getActionBar().setIcon(getResources().getDrawable(R.drawable.network_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.network_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.network_icon));
 	}
 
 }

@@ -41,8 +41,8 @@ public class PowermgmtFragmentActivity extends PreferenceFragment {
 
 		addPreferencesFromResource(R.xml.powermgmt_preferences);
 
-		getActionBar().setTitle(getResources().getString(R.string.powermgmt_name));
-		getActionBar().setIcon(getResources().getDrawable(R.drawable.powermgmt_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.powermgmt_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.powermgmt_icon));
 	}
 
 	@Override

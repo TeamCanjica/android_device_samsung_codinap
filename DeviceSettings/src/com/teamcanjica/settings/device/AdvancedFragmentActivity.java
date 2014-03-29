@@ -49,8 +49,8 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 
 		addPreferencesFromResource(R.xml.advanced_preferences);
 
-		getActionBar().setTitle(getResources().getString(R.string.advanced_name));
-		getActionBar().setIcon(getResources().getDrawable(R.drawable.ace2settings_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.advanced_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.ace2settings_icon));
 	}
 
 	@Override
