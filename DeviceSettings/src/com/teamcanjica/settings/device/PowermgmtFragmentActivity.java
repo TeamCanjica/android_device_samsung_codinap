@@ -34,13 +34,15 @@ public class PowermgmtFragmentActivity extends PreferenceFragment {
 
 	private static final String FILE_WIFI_PM = "/sys/module/dhd/parameters/dhdpm_fast";
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		addPreferencesFromResource(R.xml.powermgmt_preferences);
 
-//		PreferenceScreen prefSet = getPreferenceScreen();
+		getActionBar().setTitle(getResources().getString(R.string.powermgmt_name));
+		getActionBar().setIcon(getResources().getDrawable(R.drawable.powermgmt_icon));
 	}
 
 	@Override

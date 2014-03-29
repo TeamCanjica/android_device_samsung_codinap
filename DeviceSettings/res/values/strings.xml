@@ -6,6 +6,7 @@
     <string name="image">Thumbnail</string>
 
     <!-- CATEGORY: Network -->
+    <string name="network_name">Network</string>
 
     <!-- SUBCATEGORY: Radio mode -->
     <string name="radio_subcat_title">Radio mode</string>
@@ -18,6 +19,7 @@
     <string name="tcp_summary_head">Switching the algorithm affects your download and upload speeds and latency.</string>
 
     <!-- CATEGORY: USB -->
+    <string name="usb_name">USB</string>
 
     <!-- SUBCATEGORY: USB OTG Settings -->
     <string name="otg_subcat_title">USB OTG Settings</string>
@@ -32,7 +34,8 @@
     <string name="usb_cc_summary_head">USB cable currency in mAh, useful to implement Fast Charge, low levels protect battery but takes longer to charge, high levels may damage battery life</string>
 
     <!-- CATEGORY: AUDIO -->
-    
+    <string name="audio_name">Audio</string>
+
     <!-- SUBCATEGORY: Headset Gain -->
     <string name="headsetgain_subcat_title">Headset Gain</string>
     
@@ -79,6 +82,7 @@
     <string name="enable_classdwg_summary_head">Enable control for the white component of dithering filter.</string>
 
     <!-- CATEGORY: SCREEN -->
+    <string name="screen_name">Screen</string>
 
     <!-- SUBCATEGORY: TouchScreen -->
     <string name="touchscreen_subcat_title">Touchscreen</string>
@@ -102,6 +106,7 @@
     <string name="mali_pam_summary_head">Increasing it may improve graphics performance.</string>
 
     <!-- CATEGORY: Power Management -->
+    <string name="powermgmt_name">Power Management</string>
 
     <!-- SUBCATEGORY: WIFI -->
     <string name="wifi_subcat_title">Wifi</string>
@@ -119,6 +124,7 @@
     <string name="deepest_sleep_summary_head">Specify the highest deep sleep level</string>
 
     <!-- CATEGORY: ADVANCED -->
+    <string name="advanced_name">Advanced</string>
 
     <!-- SUBCATEGORY: STORAGE -->
     <string name="storage_subcat_title">Storage</string>

@@ -32,23 +32,12 @@
         </receiver>
 
 		<activity android:name="com.teamcanjica.settings.device.ContainerActivity" />
-
-		<activity android:name="com.teamcanjica.settings.device.NetworkFragmentActivity"
-				android:icon="@drawable/network_icon" />
-
-		<activity android:name="com.teamcanjica.settings.device.USBFragmentActivity"
-				android:icon="@drawable/usb_icon" />
-
-		<activity android:name="com.teamcanjica.settings.device.AudioFragmentActivity"
-				android:icon="@drawable/audio_icon" />
-
-		<activity android:name="com.teamcanjica.settings.device.ScreenFragmentActivity"
-				android:icon="@drawable/screen_icon" />
-
-		<activity android:name="com.teamcanjica.settings.device.PowermgmtFragmentActivity"
-				android:icon="@drawable/powermgmt_icon" />
-
+		<activity android:name="com.teamcanjica.settings.device.NetworkFragmentActivity" />
+		<activity android:name="com.teamcanjica.settings.device.USBFragmentActivity" />
+		<activity android:name="com.teamcanjica.settings.device.AudioFragmentActivity" />
+		<activity android:name="com.teamcanjica.settings.device.ScreenFragmentActivity" />
+		<activity android:name="com.teamcanjica.settings.device.PowermgmtFragmentActivity" />
 		<activity android:name="com.teamcanjica.settings.device.AdvancedFragmentActivity" />
-
+        
     </application>
 </manifest>

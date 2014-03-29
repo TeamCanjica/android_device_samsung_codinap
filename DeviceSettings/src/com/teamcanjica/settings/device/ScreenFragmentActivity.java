@@ -34,13 +34,15 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 	
 	public static final String FILE_SWEEP2WAKE = "/sys/kernel/bt404/sweep2wake";
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		addPreferencesFromResource(R.xml.screen_preferences);
 
-//		PreferenceScreen prefSet = getPreferenceScreen();
+		getActionBar().setTitle(getResources().getString(R.string.screen_name));
+		getActionBar().setIcon(getResources().getDrawable(R.drawable.screen_icon));
 	}
 
 	@Override
