@@ -40,6 +40,7 @@
         <item>Stanje 5</item>
         <item>Stanje 4</item>
         <item>Stanje 3 (Zadano)</item>
+    </string-array>
 
     <!-- HSPA -->
     <string-array name="hspa_entries">
