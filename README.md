@@ -36,6 +36,7 @@ How to build:
         cd system/core
         git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2
         git cherry-pick FETCH_HEAD
+        cd ../..
         cd hardware/libhardware_legacy
         git fetch https://github.com/TeamCanjica/android_hardware_libhardware_legacy cm-10.2
         git cherry-pick 60207c7e08182e122030547cc3e22d8b27ec623b
