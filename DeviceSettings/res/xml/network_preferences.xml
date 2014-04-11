@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/radio_subcat_title" >
         <!-- Hspa modes -->
-        <com.teamcanjica.settings.device.Hspa
+        <com.teamcanjica.settings.device.MasterListPreference
             android:defaultValue="23"
             android:entries="@array/hspa_entries"
             android:entryValues="@array/hspa_entries_values"
@@ -13,13 +13,20 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/tcp_subcat_title" >
-        <com.teamcanjica.settings.device.TCPControl
+        <com.teamcanjica.settings.device.MasterListPreference
             android:defaultValue="cubic"
             android:entries="@array/tcp_control_entries"
             android:entryValues="@array/tcp_control_entries_values"
             android:key="tcp_control"
             android:summary="@string/tcp_summary_head"
             android:title="@string/tcp_title_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/wifi_subcat_title" >
+        <CheckBoxPreference
+            android:key="use_wifipm_max"
+            android:summary="@string/use_wifipm_max_summary_head"
+            android:title="@string/use_wifipm_max_title_head" />
     </PreferenceCategory>
 
 </PreferenceScreen>

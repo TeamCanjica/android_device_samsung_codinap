@@ -3,8 +3,6 @@ package com.teamcanjica.settings.device;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.teamcanjica.settings.device.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,8 +20,12 @@ public class DeviceSettings extends Activity implements OnItemClickListener{
 	public static final String KEY_CALIBRATE_ACCELEROMETER = "calibrate_accelerometer";
 	public static final String KEY_USB_OTG_POWER = "usb_otg_power";
 	public static final String KEY_DEEPEST_SLEEP_STATE = "deepest_sleep_state";
-	public static final String KEY_AC_CURRENCY = "ac_currency";
-	public static final String KEY_USB_CURRENCY = "usb_currency";
+	public static final String KEY_USE_CHARGER_CONTROL = "use_charger_control";
+	public static final String KEY_CHARGER_CURRENCY = "charger_currency";
+	public static final String KEY_USE_CYCLE_CHARGING = "use_cycle_charging";
+	public static final String KEY_DISCHARGING_THRESHOLD = "discharging_threshold";
+	public static final String KEY_RECHARGING_THRESHOLD = "recharging_threshold";
+	public static final String KEY_EOC = "eoc_status";
 	public static final String KEY_FSYNC_MODE = "fsync_mode";
 	public static final String KEY_TCP_CONTROL = "tcp_control";
 	public static final String KEY_MALI_L2MR = "mali_l2_mr";
@@ -43,21 +45,24 @@ public class DeviceSettings extends Activity implements OnItemClickListener{
 	public static final String KEY_ENABLE_CLASSDWG = "enable_classdwg";
 	public static final String KEY_ENABLE_ADDIGGAIN2 = "enable_addiggain2";
 	public static final String KEY_ENABLE_EARDIGGAIN = "enable_eardiggain";
-	public static final String KEY_ANAGAIN3_CONTROL = "anagain3_control";
 	public static final String KEY_USE_WIFIPM_MAX = "use_wifipm_max";
 	public static final String KEY_SCHED_MC = "sched_mc";
 	public static final String KEY_DISABLE_BLN = "disable_bln";
 	public static final String KEY_READAHEADKB = "readaheadkb";
-	public static final String KEY_ENABLE_UKSM = "enable_uksm";
+	public static final String KEY_SEEKBARVAL = "seekbarvalue";
+	public static final String KEY_DISABLE_AUTOBOOST = "disable_autoboost";
+	public static final String KEY_SET_GPU_CLOCK = "set_gpu_clock";
+	public static final String KEY_DISABLE_FULLSPEED = "disable_fullspeed";
+	public static final String KEY_CPU_VOLTAGE = "cpu_voltage";
 	
 	public static final String SELECTION = "selection";
 	
 	public static final String[] titles = new String[] { "Network",
-        "USB", "Audio", "Screen", "Power Management", "Advanced" };
+        "USB", "Audio", "Screen", "GPU", "I/O", "Advanced" };
 
 	public static final Integer[] images = { R.drawable.network,
         R.drawable.usb, R.drawable.audio, R.drawable.screen,
-        R.drawable.powermgmt, R.drawable.advanced };
+		R.drawable.screen, R.drawable.io, R.drawable.advanced };
 
 	ListView listView;
 	List<RowItem> rowItems;

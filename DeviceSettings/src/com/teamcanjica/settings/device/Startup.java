@@ -20,20 +20,26 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.teamcanjica.settings.device.fragments.AdvancedFragmentActivity;
+import com.teamcanjica.settings.device.fragments.AudioFragmentActivity;
+import com.teamcanjica.settings.device.fragments.GPUFragmentActivity;
+import com.teamcanjica.settings.device.fragments.IOFragmentActivity;
+import com.teamcanjica.settings.device.fragments.NetworkFragmentActivity;
+import com.teamcanjica.settings.device.fragments.ScreenFragmentActivity;
+import com.teamcanjica.settings.device.fragments.USBFragmentActivity;
+
 public class Startup extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(final Context context, final Intent bootintent) {
 		USBFragmentActivity.restore(context);
-		ChargerCurrency.restore(context);
-		UsbCurrency.restore(context);
 		AudioFragmentActivity.restore(context);
 		ScreenFragmentActivity.restore(context);
-		FsyncMode.restore(context);
-		MaliL2MaxReads.restore(context);
-		MaliPreAllocMem.restore(context);
-		PowermgmtFragmentActivity.restore(context);
-		DeepestSleepState.restore(context);
+		NetworkFragmentActivity.restore(context);
 		AdvancedFragmentActivity.restore(context);
+		GPUFragmentActivity.restore(context);
+		MasterListPreference.restore(context);
+		MasterSeekBarDialogPreference.restore(context);
+		IOFragmentActivity.restore(context);
 	}
 }

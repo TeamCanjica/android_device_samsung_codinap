@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.teamcanjica.settings.device;
+package com.teamcanjica.settings.device.fragments;
 
-import com.teamcanjica.settings.device.R;
+import java.io.IOException;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,8 +29,11 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
-import java.lang.Runtime;
-import java.io.IOException;
+import android.view.MenuItem;
+
+import com.teamcanjica.settings.device.DeviceSettings;
+import com.teamcanjica.settings.device.R;
+import com.teamcanjica.settings.device.Utils;
 
 public class AdvancedFragmentActivity extends PreferenceFragment {
 
@@ -37,11 +41,7 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 
 	private static final String FILE_ACCELEROMETER_CALIB = "/sys/class/sensors/accelerometer_sensor/calibration";
 
-	private static final String FILE_SPI_CRC = "/sys/module/mmc_core/parameters/use_spi_crc";
-
-	private static final String FILE_BLN = "/sys/class/misc/backlightnotification/enabled";
-
-	private static final String FILE_UKSM = "/sys/kernel/mm/uksm/run";		  
+	private static final String FILE_BLN = "/sys/class/misc/backlightnotification/enabled";	  
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,13 +51,13 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 
 		getActivity().getActionBar().setTitle(getResources().getString(R.string.advanced_name));
 		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.ace2settings_icon));
+
 	}
 
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			Preference preference) {
 
-		String boxValue;
 		String key = preference.getKey();
 
 		Log.w(TAG, "key: " + key);
@@ -74,18 +74,9 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 			} catch (InterruptedException e) {
 			    e.printStackTrace();
 			}
-		}
-
-		if (key.equals(DeviceSettings.KEY_USE_SPI_CRC)) {
-			boxValue = (((CheckBoxPreference) preference).isChecked() ? "0"
-					: "1");
-			Utils.writeValue(FILE_SPI_CRC, boxValue);
-		}
-
-		if (key.compareTo(DeviceSettings.KEY_USE_ACCELEROMETER_CALIBRATION) == 0) {
-			boxValue = (((CheckBoxPreference) preference).isChecked() ? "1"
-					: "0");
-			Utils.writeValue(FILE_ACCELEROMETER_CALIB, boxValue);
+		} else if (key.compareTo(DeviceSettings.KEY_USE_ACCELEROMETER_CALIBRATION) == 0) {
+			Utils.writeValue(FILE_ACCELEROMETER_CALIB, (((CheckBoxPreference) preference).
+					isChecked() ? "1" : "0"));
 		} else if (key.compareTo(DeviceSettings.KEY_CALIBRATE_ACCELEROMETER) == 0) {
 			// when calibration data utilization is disabled and enabled back,
 			// calibration is done at the same time by driver
@@ -94,18 +85,9 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 			Utils.showDialog((Context) getActivity(),
 					getString(R.string.accelerometer_dialog_head),
 					getString(R.string.accelerometer_dialog_message));
-		}
-
-		if (key.equals(DeviceSettings.KEY_DISABLE_BLN)) {
-			boxValue = (((CheckBoxPreference) preference).isChecked() ? "0"
-					: "1");
-			Utils.writeValue(FILE_BLN, boxValue);
-		}
-
-		if (key.equals(DeviceSettings.KEY_ENABLE_UKSM)) {
-			boxValue = (((CheckBoxPreference) preference).isChecked() ? "1"
-					: "0");
-			Utils.writeValue(FILE_UKSM, boxValue);
+		} else if (key.equals(DeviceSettings.KEY_DISABLE_BLN)) {
+			Utils.writeValue(FILE_BLN, (((CheckBoxPreference) preference).
+					isChecked() ? "0" : "1"));
 		}
 
 		return true;
@@ -120,22 +102,11 @@ public class AdvancedFragmentActivity extends PreferenceFragment {
 		editor.putBoolean(DeviceSettings.KEY_SWITCH_STORAGE,sstor==1?true:false);
 		editor.commit();
 
-		String crcvalue = sharedPrefs.getBoolean(
-				DeviceSettings.KEY_USE_SPI_CRC, false) ? "0" : "1";
-		Utils.writeValue(FILE_SPI_CRC, crcvalue);
+		Utils.writeValue(FILE_ACCELEROMETER_CALIB, sharedPrefs.getBoolean(
+				DeviceSettings.KEY_USE_ACCELEROMETER_CALIBRATION, true) ? "1" : "0");
 
-		boolean accelerometerCalib = sharedPrefs.getBoolean(
-				DeviceSettings.KEY_USE_ACCELEROMETER_CALIBRATION, true);
-		if (!accelerometerCalib)
-			Utils.writeValue(FILE_ACCELEROMETER_CALIB, "0");
-
-		String blnvalue = sharedPrefs.getBoolean(
-				DeviceSettings.KEY_DISABLE_BLN, true) ? "0" : "1";
-		Utils.writeValue(FILE_BLN, blnvalue);
-
-		String uksmvalue = sharedPrefs.getBoolean(
-				DeviceSettings.KEY_ENABLE_UKSM, false) ? "1" : "0";
-		Utils.writeValue(FILE_UKSM, uksmvalue);
+		Utils.writeValue(FILE_BLN, sharedPrefs.getBoolean(
+				DeviceSettings.KEY_DISABLE_BLN, true) ? "0" : "1");
 
 	}
 

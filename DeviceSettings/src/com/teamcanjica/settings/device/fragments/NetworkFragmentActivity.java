@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package com.teamcanjica.settings.device;
-
-import com.teamcanjica.settings.device.R;
+package com.teamcanjica.settings.device.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -28,36 +26,37 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
-public class ScreenFragmentActivity extends PreferenceFragment {
+import com.teamcanjica.settings.device.DeviceSettings;
+import com.teamcanjica.settings.device.R;
+import com.teamcanjica.settings.device.Utils;
 
-	private static final String TAG = "GalaxyAce2_Settings_Screen";
-	
-	public static final String FILE_SWEEP2WAKE = "/sys/kernel/bt404/sweep2wake";
+public class NetworkFragmentActivity extends PreferenceFragment {
 
+	private static final String TAG = "GalaxyAce2_Settings_Network";
+
+	private static final String FILE_WIFI_PM = "/sys/module/dhd/parameters/dhdpm_fast";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.screen_preferences);
+		addPreferencesFromResource(R.xml.network_preferences);
 
-		getActivity().getActionBar().setTitle(getResources().getString(R.string.screen_name));
-		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.screen_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.network_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.network_icon));
 	}
 
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			Preference preference) {
 
-		String boxValue;
 		String key = preference.getKey();
 
 		Log.w(TAG, "key: " + key);
 
-		if (key.equals(DeviceSettings.KEY_USE_SWEEP2WAKE)) {
-			boxValue = (((CheckBoxPreference) preference).isChecked() ? "on"
-					: "off");
-			Utils.writeValue(FILE_SWEEP2WAKE, boxValue);
+		if (key.equals(DeviceSettings.KEY_USE_WIFIPM_MAX)) {
+			Utils.writeValue(FILE_WIFI_PM, (((CheckBoxPreference) preference).
+					isChecked() ? "0" : "1"));
 		}
 
 		return true;
@@ -67,9 +66,8 @@ public class ScreenFragmentActivity extends PreferenceFragment {
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
 
-		String s2wvalue = sharedPrefs.getBoolean(
-				DeviceSettings.KEY_USE_SWEEP2WAKE, false) ? "on" : "off";
-		Utils.writeValue(FILE_SWEEP2WAKE, s2wvalue);
+		Utils.writeValue(FILE_WIFI_PM, sharedPrefs.getBoolean(
+				DeviceSettings.KEY_USE_WIFIPM_MAX, false) ? "0" : "1");
 
 	}
 

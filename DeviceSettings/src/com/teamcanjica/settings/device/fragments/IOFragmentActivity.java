@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package com.teamcanjica.settings.device;
-
-import com.teamcanjica.settings.device.R;
+package com.teamcanjica.settings.device.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -28,48 +26,49 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
-public class PowermgmtFragmentActivity extends PreferenceFragment {
+import com.teamcanjica.settings.device.DeviceSettings;
+import com.teamcanjica.settings.device.R;
+import com.teamcanjica.settings.device.Utils;
 
-	private static final String TAG = "GalaxyAce2_Settings_Advanced";
+public class IOFragmentActivity extends PreferenceFragment {
 
-	private static final String FILE_WIFI_PM = "/sys/module/dhd/parameters/dhdpm_fast";
+	private static final String TAG = "GalaxyAce2_Settings_IO";
 
+	private static final String FILE_SPI_CRC = "/sys/module/mmc_core/parameters/use_spi_crc";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.powermgmt_preferences);
+		addPreferencesFromResource(R.xml.io_preferences);
 
-		getActivity().getActionBar().setTitle(getResources().getString(R.string.powermgmt_name));
-		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.powermgmt_icon));
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.io_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.io_icon));
 	}
-
+	
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			Preference preference) {
 
-		String boxValue;
 		String key = preference.getKey();
 
 		Log.w(TAG, "key: " + key);
 
-		if (key.equals(DeviceSettings.KEY_USE_WIFIPM_MAX)) {
-			boxValue = (((CheckBoxPreference) preference).isChecked() ? "0"
-					: "1");
-			Utils.writeValue(FILE_WIFI_PM, boxValue);
+
+		if (key.equals(DeviceSettings.KEY_USE_SPI_CRC)) {
+			Utils.writeValue(FILE_SPI_CRC, (((CheckBoxPreference) preference).
+					isChecked() ? "0" : "1"));
 		}
 
 		return true;
 	}
-
+	
 	public static void restore(Context context) {
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
 
-		String wifipmvalue = sharedPrefs.getBoolean(
-				DeviceSettings.KEY_USE_WIFIPM_MAX, false) ? "0" : "1";
-		Utils.writeValue(FILE_WIFI_PM, wifipmvalue);
+		Utils.writeValue(FILE_SPI_CRC, sharedPrefs.getBoolean(
+				DeviceSettings.KEY_USE_SPI_CRC, false) ? "0" : "1");
 
 	}
 

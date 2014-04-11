@@ -14,70 +14,65 @@
  * limitations under the License.
  */
 
-package com.teamcanjica.settings.device;
+package com.teamcanjica.settings.device.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.preference.CheckBoxPreference;
 import android.util.Log;
 
+import com.teamcanjica.settings.device.DeviceSettings;
 import com.teamcanjica.settings.device.R;
+import com.teamcanjica.settings.device.Utils;
 
-public class USBFragmentActivity extends PreferenceFragment {
+public class ScreenFragmentActivity extends PreferenceFragment {
 
-	private static final String TAG = "GalaxyAce2_Settings_USB";
-	private static final String FILE = "/sys/kernel/abb-regu/VOTG";
+	private static final String TAG = "GalaxyAce2_Settings_Screen";
+	
+	private static final String FILE_SWEEP2WAKE = "/sys/kernel/bt404/sweep2wake";
 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.usb_preferences);
+		addPreferencesFromResource(R.xml.screen_preferences);
 
-		PreferenceScreen prefSet = getPreferenceScreen();
-
-		prefSet.findPreference(DeviceSettings.KEY_AC_CURRENCY).setEnabled(
-				ChargerCurrency.isSupported());
-		prefSet.findPreference(DeviceSettings.KEY_USB_CURRENCY).setEnabled(
-				UsbCurrency.isSupported());
-		prefSet.findPreference(DeviceSettings.KEY_USB_OTG_POWER).setEnabled(
-				isSupported(FILE));
-				
-		getActivity().getActionBar().setTitle(getResources().getString(R.string.usb_name));
-		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.usb_icon));
-
+		getActivity().getActionBar().setTitle(getResources().getString(R.string.screen_name));
+		getActivity().getActionBar().setIcon(getResources().getDrawable(R.drawable.screen_icon));
 	}
 
 	@Override
 	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
 			Preference preference) {
 
-		// String boxValue;
+		String boxValue;
 		String key = preference.getKey();
 
 		Log.w(TAG, "key: " + key);
 
-		if (key.equals(DeviceSettings.KEY_USB_OTG_POWER)) {
-			if (((CheckBoxPreference) preference).isChecked()) {
-				Utils.writeValue(FILE, "1");
-			} else {
-				Utils.writeValue(FILE, "0");
-			}
+		if (key.equals(DeviceSettings.KEY_USE_SWEEP2WAKE)) {
+			boxValue = (((CheckBoxPreference) preference).isChecked() ? "on"
+					: "off");
+			Utils.writeValue(FILE_SWEEP2WAKE, boxValue);
 		}
 
 		return true;
 	}
 
-	public static boolean isSupported(String FILE) {
-		return Utils.fileExists(FILE);
+	public static void restore(Context context) {
+		SharedPreferences sharedPrefs = PreferenceManager
+				.getDefaultSharedPreferences(context);
+
+		String s2wvalue = sharedPrefs.getBoolean(
+				DeviceSettings.KEY_USE_SWEEP2WAKE, false) ? "on" : "off";
+		Utils.writeValue(FILE_SWEEP2WAKE, s2wvalue);
+
 	}
 
-	public static void restore(Context context) {
-		PreferenceManager.getDefaultSharedPreferences(context);
-	}
 }

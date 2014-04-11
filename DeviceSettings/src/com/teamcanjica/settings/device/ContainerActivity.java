@@ -1,13 +1,19 @@
 package com.teamcanjica.settings.device;
 
-import com.teamcanjica.settings.device.R;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+
+import com.teamcanjica.settings.device.fragments.AdvancedFragmentActivity;
+import com.teamcanjica.settings.device.fragments.AudioFragmentActivity;
+import com.teamcanjica.settings.device.fragments.GPUFragmentActivity;
+import com.teamcanjica.settings.device.fragments.NetworkFragmentActivity;
+import com.teamcanjica.settings.device.fragments.IOFragmentActivity;
+import com.teamcanjica.settings.device.fragments.ScreenFragmentActivity;
+import com.teamcanjica.settings.device.fragments.USBFragmentActivity;
 
 public class ContainerActivity extends Activity {
 
@@ -40,10 +46,14 @@ public class ContainerActivity extends Activity {
 			fragment = new ScreenFragmentActivity();
 			break;
 		case 4:
-			// Power Management
-			fragment = new PowermgmtFragmentActivity();
+			// GPU
+			fragment = new GPUFragmentActivity();
 			break;
 		case 5:
+			// I/O
+			fragment = new IOFragmentActivity();
+			break;
+		case 6:
 			// Advanced
 			fragment = new AdvancedFragmentActivity();
 			break;

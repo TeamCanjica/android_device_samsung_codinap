@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cyanogenmod="http://schemas.android.com/apk/res-auto" >
+    xmlns:teamcanjica="http://schemas.android.com/apk/res/com.teamcanjica.settings.device" >
 
     <PreferenceCategory android:title="@string/storage_subcat_title" >
         <CheckBoxPreference
@@ -15,27 +15,18 @@
             android:summary="@string/disable_bln_summary_head"
             android:title="@string/disable_bln_title_head" />
     </PreferenceCategory>
-    
-   <PreferenceCategory android:title="@string/scheduler_subcat_title" >
-       <com.teamcanjica.settings.device.ReadaheadkB
-           android:defaultValue="512"
-           android:dialogMessage="@string/readaheadkb_dialog_message"
-           android:max="4096"
-           cyanogenmod:min="128"
-           cyanogenmod:progressTextSuffix="kB"
-           android:key="readaheadkb"
-           android:title="@string/readaheadkb_title_head" />
-       <CheckBoxPreference
-           android:key="enable_uksm"
-           android:summary="@string/enable_uksm_summary_head"
-           android:title="@string/enable_uksm_title_head" />
-   </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/mmc_subcat_title" >
-        <CheckBoxPreference
-            android:key="use_spi_crc"
-            android:summary="@string/use_spi_crc_summary_head"
-            android:title="@string/use_spi_crc_title_head" />
+    <PreferenceCategory android:title="@string/voltages_subcat_title" >
+        <com.teamcanjica.settings.device.MasterSeekBarDialogPreference
+            android:key="cpu_voltage"
+            android:title="@string/cpu_voltage_title_head"
+            android:summary="@string/cpu_voltage_summary_head"
+            android:dialogMessage="@string/cpu_voltage_dialog_message"
+            android:defaultValue="0.0"
+            teamcanjica:maximumValue="0"
+            teamcanjica:minimumValue="-50"
+            teamcanjica:units="mV"
+            teamcanjica:stepSize="12.5" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/accelerometer_subcat_title" >

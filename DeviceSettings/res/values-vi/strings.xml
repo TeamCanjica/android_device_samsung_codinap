@@ -2,7 +2,7 @@
 <resources>
 
     <!-- App name -->
-    <string name="app_name">Cài đặt</string>
+    <string name="app_name">Cài đặt Galaxy Ace 2</string>
     <string name="image">Hình thu nhỏ</string>
 
     <!-- CATEGORY: Network -->
@@ -115,8 +115,8 @@
 
     <!-- SUBCATEGORY: Scheduler -->
     <string name="scheduler_subcat_title">Scheduler</string>
-    <string name="sched_mc_title_head">Đa lõi tiết kiệm năng lượn</string>
-    <string name="sched_mc_summary_head">Cố gắng nhiệm vụ nhóm vào lõi nhất có thể có tiết kiệm điện năng như hotplug. Không được khuyến cáo trên các governor hotlug.</string>
+    <string name="sched_mc_title_head">Đa lõi tiết kiệm năng lượng</string>
+    <string name="sched_mc_summary_head">Cố gắng nhiệm vụ nhóm vào lõi nhất có thể có tiết kiệm điện năng như hotplug. Không được khuyến cáo trên các governor hotplug.</string>
 
     <!-- SUBCATEGORY: Deep Sleep -->
     <string name="deepsleep_subcat_title">Ngủ sâu</string>

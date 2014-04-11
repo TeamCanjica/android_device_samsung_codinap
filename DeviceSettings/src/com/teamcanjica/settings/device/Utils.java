@@ -16,16 +16,16 @@
 
 package com.teamcanjica.settings.device;
 
-import android.util.Log;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.SyncFailedException;
+
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.util.Log;
 
 public class Utils {
 
@@ -149,5 +149,10 @@ public class Utils {
 					}
 				});
 		alertDialog.show();
+	}
+	
+
+	public static boolean isSupported(String FILE) {
+		return Utils.fileExists(FILE);
 	}
 }

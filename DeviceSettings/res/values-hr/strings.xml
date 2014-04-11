@@ -87,15 +87,13 @@
     <string name="switch_storage_summary_head">Zamjenjuje unutarnju sa vanjskom memorijom. Potrebno resetirati!</string>
 
    <!-- SUBCATEGORY: BLN -->
-    <string name="backlight_subcat_title">Backlight</string>
-    <string name="disable_bln_title_head">Disable BLN</string>
-    <string name="disable_bln_summary_head">You won\'t be able to be notified of notifications through your backlight if BLN is disabled.</string>
+    <string name="backlight_subcat_title">Pozadinsko svjetlo</string>
+    <string name="disable_bln_title_head">Isključi BLN</string>
+    <string name="disable_bln_summary_head">Nećete primati obavijesti preko pozadinskog svjetla tipaka.</string>
 
     <!-- SUBCATEGORY: Scheduler -->
     <string name="readaheadkb_dialog_message">Odaberi vrijednost readahead buffer-a</string>
     <string name="readaheadkb_title_head">Vrijednost Readahead buffer</string>
-    <string name="enable_uksm_title_head">Koristi UKSM</string>
-    <string name="enable_uksm_summary_head">Uključivanje Ultra Kernel SamePage Merging, bolje upravljanje RAM memorijom ali povećava korištenje CPU-a.</string>
 
     <!-- SUBCATEGORY: MMC -->
     <string name="mmc_subcat_title">MMC</string>
