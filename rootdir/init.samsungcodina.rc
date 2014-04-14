@@ -566,15 +566,15 @@ service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1
     class late_start
     disabled
 
-# System permission for device parts
-on property:sys.boot_completed=1   
+# System permission for NovaThor Settings
+on property:sys.boot_completed=1
+    chown system system /proc/sys/net/ipv4/tcp_congestion_control
     chown system system /sys/block/mmcblk0/queue/read_ahead_kb
     chown system system /sys/devices/system/cpu/sched_mc_power_savings
     chown system system /sys/class/misc/backlightnotification/enabled
-    chown system system /sys/kernel/abb-fg/cyc_fg
+    chown system system /sys/kernel/abb-fg/fg_cyc
+    chown system system /sys/kernel/abb-fg/fg_refresh
     chown system system /sys/kernel/abb-charger/charger_curr
-    chown system system /sys/kernel/abb-chargalg/eoc_first
-    chown system system /sys/kernel/abb-chargalg/eoc_real
     chown system system /sys/kernel/abb-codec/anagain3
     chown system system /sys/kernel/abb-codec/hsrdiggain
     chown system system /sys/kernel/abb-codec/hsldiggain
@@ -602,6 +602,7 @@ on property:sys.boot_completed=1
     chown system system /sys/kernel/mali/mali_gpu_clock
     chown system system /sys/kernel/mali/mali_auto_boost
     chown system system /sys/kernel/mali/mali_gpu_fullspeed
+    chown system system /sys/kernel/mali/mali_dvfs_config
     chown system system /sys/module/mmc_core/parameters/use_spi_crc
     chown system system /sys/module/dhd/parameters/dhdpm_fast
     chown system system /sys/module/mali/parameters/mali_l2_max_reads

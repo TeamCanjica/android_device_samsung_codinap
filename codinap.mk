@@ -14,10 +14,6 @@ CODINA_PATH := device/samsung/codina
 
 DEVICE_PACKAGE_OVERLAYS += $(CODINA_PATH)/overlay
 
-# Ace 2 settings
-PRODUCT_PACKAGES += \
-    GalaxyAce2Settings
-
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
