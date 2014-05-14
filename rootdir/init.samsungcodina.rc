@@ -55,6 +55,7 @@ on init
 on fs
 
     mount_all /fstab.samsungcodina
+    swapon_all /fstab.samsungcodina
 
     setprop ro.crypto.fuse_sdcard true
  
@@ -589,6 +590,8 @@ on property:sys.boot_completed=1
     chown system system /sys/kernel/abb-fg/fg_refresh
     chown system system /sys/kernel/abb-ponkey/emulator
     chown system system /sys/kernel/abb-regu/VOTG
+    chown system system /sys/kernel/bln/blink_mode
+    chown system system /sys/kernel/bt404/doubletap2wake
     chown system system /sys/kernel/bt404/sweep2wake
     chown system system /sys/kernel/debug/cpuidle/deepest_state
     chown system system /sys/kernel/fsync/mode
