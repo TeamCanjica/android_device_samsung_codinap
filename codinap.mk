@@ -18,7 +18,6 @@ PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 PRODUCT_PACKAGES += \
-    GalaxyAce2Settings \
     CMAccount
 
 # Init files
@@ -56,10 +55,3 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
-
-# Storage switch script
-PRODUCT_COPY_FILES += \
-    $(CODINA_PATH)/configs/SwapStorages.sh:system/xbin/SwapStorages.sh
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
-    persist.sys.vold.switchexternal=0
