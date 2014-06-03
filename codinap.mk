@@ -4,11 +4,6 @@ $(call inherit-product, device/samsung/u8500-common/common.mk)
 #For better compatibility with ROMs (like Slim, PAC)
 $(call inherit-product, vendor/samsung/u8500-common/codina/codinap-vendor-blobs.mk)
 
-ifneq ($(TARGET_SCREEN_HEIGHT),800)
-# Call cm.mk because somehow it's not being called!
-$(call inherit-product, device/samsung/codinap/cm.mk)
-endif
-
 LOCAL_PATH := device/samsung/codinap
 CODINA_PATH := device/samsung/codina
 
@@ -17,6 +12,7 @@ DEVICE_PACKAGE_OVERLAYS += $(CODINA_PATH)/overlay
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
+    $(CODINA_PATH)/rootdir/codina_tunables.rc:root/codina_tunables.rc \
     $(CODINA_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina \
     $(CODINA_PATH)/rootdir/init.recovery.samsungcodina.rc:root/init.recovery.samsungcodina.rc \
     $(CODINA_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
@@ -28,7 +24,6 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(CODINA_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(CODINA_PATH)/configs/adm.sqlite-u8500:system/etc/adm.sqlite-u8500
 
 # Gps
