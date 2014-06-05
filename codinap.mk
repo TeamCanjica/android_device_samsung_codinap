@@ -12,10 +12,9 @@ DEVICE_PACKAGE_OVERLAYS += $(CODINA_PATH)/overlay
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
-    $(CODINA_PATH)/rootdir/codina_tunables.rc:root/codina_tunables.rc \
+    $(CODINA_PATH)/rootdir/device_tunables.rc:root/device_tunables.rc \
     $(CODINA_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina \
     $(CODINA_PATH)/rootdir/init.recovery.samsungcodina.rc:root/init.recovery.samsungcodina.rc \
-    $(CODINA_PATH)/rootdir/init.samsungcodina.usb.rc:root/init.samsungcodina.usb.rc \
     $(CODINA_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc
     
 # STE

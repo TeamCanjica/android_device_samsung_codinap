@@ -1,15 +1,9 @@
 import /init.u8500.rc
-import /codina_tunables.rc
-import /init.samsungcodina.usb.rc
 
 on init
 
+    # Janice uses preload as swap partition so this is codina specific
     mkdir /preload 0771 system system
-
-on fs
-
-    mount_all /fstab.samsungcodina
-    swapon_all /fstab.samsungcodina
 
 on post-fs-data
 
