@@ -1,19 +1,20 @@
 # Include common makefile
 $(call inherit-product, device/samsung/u8500-common/common.mk)
 
-#For better compatibility with ROMs (like Slim, PAC)
+# For better compatibility with ROMs (like Slim, PAC)
 $(call inherit-product, vendor/samsung/u8500-common/codina/codinap-vendor-blobs.mk)
 
 LOCAL_PATH := device/samsung/codinap
 CODINA_PATH := device/samsung/codina
 
+# Overlay
 DEVICE_PACKAGE_OVERLAYS += $(CODINA_PATH)/overlay
 
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
     $(CODINA_PATH)/rootdir/device_tunables.rc:root/device_tunables.rc \
     $(CODINA_PATH)/rootdir/fstab.samsungcodina:root/fstab.samsungcodina \
+    $(LOCAL_PATH)/rootdir/init.samsungcodina.rc:root/init.samsungcodina.rc \
     $(CODINA_PATH)/rootdir/init.recovery.samsungcodina.rc:root/init.recovery.samsungcodina.rc \
     $(CODINA_PATH)/rootdir/ueventd.samsungcodina.rc:root/ueventd.samsungcodina.rc
     
